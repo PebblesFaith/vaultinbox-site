@@ -50,7 +50,9 @@
     nav a.active{border-color:var(--line); background:#fff; color:var(--ink)}
     .hero{
       border:1px solid var(--line);
-      background:radial-gradient(1200px 400px at 10% 10%, rgba(139,147,140,.16) 0%, rgba(255,255,255,1) 40%) , #fff;
+      background:
+        radial-gradient(1200px 420px at 10% 10%, rgba(139,147,140,.16) 0%, rgba(255,255,255,1) 42%),
+        #fff;
       border-radius:calc(var(--radius) + 8px);
       box-shadow:var(--shadow);
       padding:28px;
@@ -62,7 +64,8 @@
       .hero{grid-template-columns:1fr}
     }
     h1{margin:0 0 10px; font-size:42px; line-height:1.08}
-    .lead{margin:0 0 18px; font-size:16px; color:var(--muted); line-height:1.55}
+    .lead{margin:0 0 10px; font-size:16px; color:var(--muted); line-height:1.55}
+    .lead2{margin:0 0 18px; font-size:14px; color:var(--muted); line-height:1.6}
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
     .chip{
       border:1px solid var(--line);
@@ -90,6 +93,8 @@
       border-color:var(--brand);
       color:#fff;
     }
+    .btn:hover{text-decoration:none}
+    .btn.primary:hover{opacity:.92}
     .panel{
       border:1px solid var(--line);
       background:#fff;
@@ -112,6 +117,13 @@
       margin-top:12px;
     }
     @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .grid2{grid-template-columns:1fr} }
     .card{
       border:1px solid var(--line);
       background:#fff;
@@ -136,6 +148,37 @@
       padding:5px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--muted);
       font-weight:700;
     }
+    .pillRow{
+      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px
+    }
+    .miniPill{
+      border:1px solid var(--line);
+      background:var(--soft);
+      padding:8px 10px;
+      border-radius:12px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:700;
+    }
+    .faq{
+      margin-top:10px;
+      display:grid;
+      gap:10px;
+    }
+    details{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:14px;
+      padding:12px 14px;
+      box-shadow:0 10px 30px rgba(2,6,23,.03);
+    }
+    summary{
+      cursor:pointer;
+      font-weight:800;
+      color:var(--ink);
+      font-size:14px;
+    }
+    details p{margin-top:8px}
   </style>
 </head>
 
@@ -165,10 +208,15 @@
           evidence-oriented digital delivery—designed for legal notices, compliance correspondence,
           and dispute-ready documentation.
         </p>
+        <p class="lead2">
+          Public pages describe architectural intent and control categories. Security-sensitive implementation details and
+          evidentiary specifics are shared selectively for diligence.
+        </p>
 
         <div class="ctaRow">
           <a class="btn primary" href="./contact.html">Request diligence materials</a>
-          <a class="btn" href="./security.html">Security & compliance overview</a>
+          <a class="btn" href="./contact.html">Schedule an intro</a>
+          <a class="btn" href="./security.html">Security overview</a>
         </div>
 
         <div class="chips" aria-label="Key attributes">
@@ -186,15 +234,23 @@
           <div class="row"><div class="k">Company</div><div class="v">VaultInbox.cloud</div></div>
           <div class="row"><div class="k">Stage</div><div class="v">Pre-seed / Seed diligence</div></div>
           <div class="row"><div class="k">Founder</div><div class="v">Sarai Hannah Ajai</div></div>
-          <div class="row"><div class="k">Positioning</div><div class="v">Compliance-first delivery proof</div></div>
-          <div class="row"><div class="k">Materials</div><div class="v">Available on request</div></div>
+          <div class="row"><div class="k">Focus</div><div class="v">Compliance-first delivery proof</div></div>
+          <div class="row"><div class="k">Model</div><div class="v">Usage-based (pay-per-delivery)</div></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="pillRow" aria-label="Diligence items">
+          <span class="miniPill">Architecture overview</span>
+          <span class="miniPill">Control categories</span>
+          <span class="miniPill">Demo walkthrough</span>
+          <span class="miniPill">Roadmap assumptions</span>
         </div>
 
         <div class="divider"></div>
 
         <p class="small">
-          Public pages describe architectural intent and control categories—detailed implementation and
-          evidentiary design specifics are shared selectively under appropriate confidentiality.
+          For diligence: request the investor brief and architecture snapshot via the contact page.
         </p>
       </aside>
     </section>
@@ -209,7 +265,7 @@
       <div class="card">
         <h3>Solution</h3>
         <p>
-          Digital certified delivery with traceable delivery events, auditable logs, and court-ready documentation patterns.
+          Digital certified delivery with traceable delivery events, auditable logs, and evidence-oriented documentation patterns.
         </p>
         <ul>
           <li>Evidence-oriented certificate generation</li>
@@ -221,19 +277,19 @@
       <div class="card">
         <h3>Why it’s defensible</h3>
         <p>
-          Compliance-first engineering: integrity, traceability, and access-control discipline as core product requirements.
+          Auditability and access-control discipline are engineered into core workflows—not bolted on after the fact.
         </p>
         <ul>
           <li>Control-category aligned design (least privilege, defense in depth)</li>
-          <li>Auditability built into workflows—not bolted on</li>
-          <li>Evidence generation designed for review and verification</li>
+          <li>Event integrity and traceability as product requirements</li>
+          <li>Evidence outputs designed for review and verification</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Who it’s for</h3>
         <p>
-          Organizations and individuals who send high-trust communications that must stand up to scrutiny.
+          Organizations and individuals who send communications that must stand up to scrutiny.
         </p>
         <ul>
           <li>Legal notices and formal correspondence</li>
@@ -243,32 +299,106 @@
       </div>
     </div>
 
-    <h2>Product maturity snapshot</h2>
-    <div class="grid" aria-label="Maturity timeline">
+    <h2>Evidence posture (what can be proven)</h2>
+    <div class="grid" aria-label="Evidence posture">
       <div class="card">
-        <h3>Now</h3>
+        <h3>Delivery events</h3>
         <ul>
-          <li>Foundational delivery workflows</li>
-          <li>Audit logging structure</li>
-          <li>Evidence-oriented certificate patterns</li>
+          <li>When an item was prepared and sent</li>
+          <li>Recipient access actions (where appropriate)</li>
+          <li>Timestamped event trail for review</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Next</h3>
+        <h3>Integrity</h3>
         <ul>
-          <li>Hardened authentication & session controls</li>
-          <li>Scalable storage strategy</li>
-          <li>Operational monitoring & incident readiness</li>
+          <li>Audit trail designed to be reviewable</li>
+          <li>Evidence-oriented certificate outputs</li>
+          <li>Change awareness and accountability</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Later</h3>
+        <h3>Access control</h3>
         <ul>
-          <li>Enterprise integrations and admin controls</li>
-          <li>Policy-based access controls</li>
-          <li>Expanded compliance posture (SOC 2-aligned controls)</li>
+          <li>Least-privilege authorization mindset</li>
+          <li>Defense-in-depth security controls</li>
+          <li>Selective disclosure for sensitive details</li>
         </ul>
       </div>
+    </div>
+
+    <h2>What we’re asking for</h2>
+    <div class="grid2" aria-label="Ask">
+      <div class="card">
+        <h3>Pre-seed / seed diligence conversations</h3>
+        <p>
+          VaultInbox.cloud is preparing for early-stage investor diligence with partners aligned to compliance-first infrastructure
+          and high-trust workflow modernization.
+        </p>
+        <ul>
+          <li>Warm introductions to aligned angels and seed funds</li>
+          <li>Feedback on go-to-market for regulated and high-trust workflows</li>
+          <li>Banking / payment readiness and operational scaling guidance</li>
+        </ul>
+        <div class="ctaRow" style="margin-top:12px;">
+          <a class="btn primary" href="./contact.html">Request diligence materials</a>
+          <a class="btn" href="./contact.html">Schedule an intro</a>
+        </div>
+        <p class="small" style="margin-top:10px;">
+          Note: public materials are intentionally high-level; diligence materials are shared responsibly.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Quick facts</h3>
+        <div class="kv">
+          <div class="row"><div class="k">Revenue</div><div class="v">Founder-funded / pre-revenue</div></div>
+          <div class="row"><div class="k">Customers</div><div class="v">Diligence-stage (not public)</div></div>
+          <div class="row"><div class="k">Stack</div><div class="v">Founder-led web platform</div></div>
+          <div class="row"><div class="k">Availability</div><div class="v">Intro calls by appointment</div></div>
+        </div>
+        <div class="divider"></div>
+        <p class="small">
+          For investor review: a one-page pitch narrative and architecture snapshot are available on request.
+        </p>
+      </div>
+    </div>
+
+    <h2>Investor FAQ</h2>
+    <div class="faq" aria-label="FAQ">
+      <details>
+        <summary>How is this different from email?</summary>
+        <p>
+          VaultInbox is designed around auditable delivery events and evidence-oriented documentation for high-trust communications,
+          not general-purpose messaging.
+        </p>
+      </details>
+      <details>
+        <summary>How do you handle security disclosure?</summary>
+        <p>
+          Public pages describe principles and control categories. Security-sensitive implementation and evidentiary design details
+          are shared selectively during diligence and partnership discussions.
+        </p>
+      </details>
+      <details>
+        <summary>What is the initial revenue model?</summary>
+        <p>
+          Usage-based (pay-per-delivery) with optional add-ons for certificate copies and enterprise features as the platform matures.
+        </p>
+      </details>
+      <details>
+        <summary>What does “audit-grade” mean here?</summary>
+        <p>
+          It means workflows are designed for traceability and review: event integrity, defensible records, and documentation patterns
+          suitable for audit and evidentiary contexts.
+        </p>
+      </details>
+      <details>
+        <summary>What’s the best way to engage?</summary>
+        <p>
+          Use the contact page to request diligence materials or to schedule an intro conversation.
+        </p>
+      </details>
     </div>
 
     <div class="callout" aria-label="Diligence request">

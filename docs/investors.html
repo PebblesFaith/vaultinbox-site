@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Investors | VaultInbox.cloud</title>
+  <meta name="description" content="VaultInbox.cloud — audit-grade digital certified delivery for high-trust communications. Investor overview and diligence request." />
+  <style>
+    :root{
+      --brand:#8b938c;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#ffffff;
+      --panel:#ffffff;
+      --line:#e2e8f0;
+      --soft:#f8fafc;
+      --radius:16px;
+      --shadow:0 6px 24px rgba(2,6,23,.06);
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--ink);
+      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px;}
+    header{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:14px 0 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .dot{width:10px; height:10px; border-radius:50%; background:var(--brand); display:inline-block;}
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    nav a{
+      text-decoration:none;
+      padding:8px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:14px;
+    }
+    nav a:hover{border-color:var(--line); background:#fff}
+    nav a.active{border-color:var(--line); background:#fff; color:var(--ink)}
+    .hero{
+      border:1px solid var(--line);
+      background:radial-gradient(1200px 400px at 10% 10%, rgba(139,147,140,.16) 0%, rgba(255,255,255,1) 40%) , #fff;
+      border-radius:calc(var(--radius) + 8px);
+      box-shadow:var(--shadow);
+      padding:28px;
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:20px;
+    }
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+    }
+    h1{margin:0 0 10px; font-size:42px; line-height:1.08}
+    .lead{margin:0 0 18px; font-size:16px; color:var(--muted); line-height:1.55}
+    .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
+    .chip{
+      border:1px solid var(--line);
+      background:#fff;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--ink);
+      min-width:190px;
+    }
+    .btn.primary{
+      background:var(--brand);
+      border-color:var(--brand);
+      color:#fff;
+    }
+    .panel{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:0 10px 30px rgba(2,6,23,.04);
+    }
+    .panel h3{margin:0 0 8px; font-size:16px}
+    .kv{display:grid; gap:10px}
+    .kv .row{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
+    .kv .k{color:var(--muted); font-weight:700; font-size:13px}
+    .kv .v{font-weight:800; font-size:13px}
+    .divider{height:1px; background:var(--line); margin:18px 0}
+    h2{font-size:20px; margin:26px 0 10px}
+    p{margin:0 0 10px; color:var(--muted); line-height:1.6}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+    .card{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .card li{margin:6px 0}
+    .callout{
+      margin-top:16px;
+      border:1px dashed rgba(139,147,140,.55);
+      background:rgba(139,147,140,.06);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .small{font-size:12px; color:var(--muted)}
+    footer{margin-top:40px; color:var(--muted); font-size:12px}
+    .tag{
+      display:inline-block; margin-left:8px; font-size:12px;
+      padding:5px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--muted);
+      font-weight:700;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="./index.html" aria-label="VaultInbox.cloud Home">
+        <span class="dot"></span>
+        <span>VaultInbox.cloud</span>
+        <span class="tag">Investor</span>
+      </a>
+
+      <nav aria-label="Primary">
+        <a href="./index.html">Home</a>
+        <a href="./security.html">Security</a>
+        <a href="./status.html">Status</a>
+        <a href="./contact.html">Contact</a>
+        <a class="active" href="./investors.html">Investors</a>
+      </nav>
+    </header>
+
+    <section class="hero" aria-label="Investor Overview">
+      <div>
+        <h1>Audit-grade digital certified delivery for high-trust communications.</h1>
+        <p class="lead">
+          VaultInbox.cloud is being built to replace legacy certified mail workflows with secure,
+          evidence-oriented digital delivery—designed for legal notices, compliance correspondence,
+          and dispute-ready documentation.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn primary" href="./contact.html">Request diligence materials</a>
+          <a class="btn" href="./security.html">Security & compliance overview</a>
+        </div>
+
+        <div class="chips" aria-label="Key attributes">
+          <span class="chip">Immutable audit trails</span>
+          <span class="chip">Evidence-grade certificates</span>
+          <span class="chip">Defense-in-depth</span>
+          <span class="chip">Least-privilege access</span>
+          <span class="chip">Founder-led engineering</span>
+        </div>
+      </div>
+
+      <aside class="panel" aria-label="Snapshot">
+        <h3>Snapshot</h3>
+        <div class="kv">
+          <div class="row"><div class="k">Company</div><div class="v">VaultInbox.cloud</div></div>
+          <div class="row"><div class="k">Stage</div><div class="v">Pre-seed / Seed diligence</div></div>
+          <div class="row"><div class="k">Founder</div><div class="v">Sarai Hannah Ajai</div></div>
+          <div class="row"><div class="k">Positioning</div><div class="v">Compliance-first delivery proof</div></div>
+          <div class="row"><div class="k">Materials</div><div class="v">Available on request</div></div>
+        </div>
+
+        <div class="divider"></div>
+
+        <p class="small">
+          Public pages describe architectural intent and control categories—detailed implementation and
+          evidentiary design specifics are shared selectively under appropriate confidentiality.
+        </p>
+      </aside>
+    </section>
+
+    <h2>What problem we’re solving</h2>
+    <p>
+      Certified mail and legacy delivery workflows are costly, slow, and vulnerable to loss and evidentiary gaps.
+      Modern regulated communications require stronger identity assurance, clearer chain-of-custody, and defensible records.
+    </p>
+
+    <div class="grid" aria-label="Core sections">
+      <div class="card">
+        <h3>Solution</h3>
+        <p>
+          Digital certified delivery with traceable delivery events, auditable logs, and court-ready documentation patterns.
+        </p>
+        <ul>
+          <li>Evidence-oriented certificate generation</li>
+          <li>Verifiable delivery event capture</li>
+          <li>Structured audit trail and retention posture</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Why it’s defensible</h3>
+        <p>
+          Compliance-first engineering: integrity, traceability, and access-control discipline as core product requirements.
+        </p>
+        <ul>
+          <li>Control-category aligned design (least privilege, defense in depth)</li>
+          <li>Auditability built into workflows—not bolted on</li>
+          <li>Evidence generation designed for review and verification</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Who it’s for</h3>
+        <p>
+          Organizations and individuals who send high-trust communications that must stand up to scrutiny.
+        </p>
+        <ul>
+          <li>Legal notices and formal correspondence</li>
+          <li>Compliance communications and policy delivery</li>
+          <li>Dispute documentation and recordkeeping</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Product maturity snapshot</h2>
+    <div class="grid" aria-label="Maturity timeline">
+      <div class="card">
+        <h3>Now</h3>
+        <ul>
+          <li>Foundational delivery workflows</li>
+          <li>Audit logging structure</li>
+          <li>Evidence-oriented certificate patterns</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Next</h3>
+        <ul>
+          <li>Hardened authentication & session controls</li>
+          <li>Scalable storage strategy</li>
+          <li>Operational monitoring & incident readiness</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Later</h3>
+        <ul>
+          <li>Enterprise integrations and admin controls</li>
+          <li>Policy-based access controls</li>
+          <li>Expanded compliance posture (SOC 2-aligned controls)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout" aria-label="Diligence request">
+      <h2 style="margin:0 0 8px;">Diligence materials (available on request)</h2>
+      <p style="margin:0 0 10px;">
+        Architecture overview, control categories, roadmap assumptions, demo walkthroughs, and implementation notes
+        appropriate for diligence can be shared upon request.
+      </p>
+      <a class="btn primary" href="./contact.html">Request diligence materials</a>
+      <p class="small" style="margin-top:10px;">
+        Note: security-sensitive implementation details are shared selectively and responsibly.
+      </p>
+    </div>
+
+    <footer>
+      © 2026 VaultInbox.cloud • Investor overview page
+    </footer>
+  </div>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Security • VaultInbox.cloud</title>
-  <meta name="description" content="VaultInbox.cloud security and compliance approach: least privilege, event integrity, and defense in depth. High-level principles only." />
+  <meta name="description" content="VaultInbox.cloud security and compliance approach for proof-required certified digital delivery: least privilege, strong recipient verification, tamper-evident event integrity, and defense in depth. High-level principles only." />
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
@@ -30,39 +30,88 @@
   <div class="wrap">
     <h1 class="h1" style="font-size:34px">Security and compliance approach</h1>
     <p class="sub">
-      VaultInbox.cloud is designed with security controls and evidentiary integrity in mind. This page describes high-level principles
-      (not implementation secrets).
+      VaultInbox.cloud is designed for <strong>proof-required communications</strong>—the same category of delivery problems historically
+      handled by USPS Certified Mail and carrier document services (UPS/FedEx). This page describes high-level principles
+      and control categories (not implementation secrets).
     </p>
 
     <div class="grid">
       <div class="card">
         <h3>Least privilege</h3>
-        <p>Access is scoped to the minimum required for each service and user action, with auditability as a core requirement.</p>
+        <p>
+          Access is scoped to the minimum required for each service, role, and action. Permissions are designed to be auditable and
+          reviewable as the platform matures into pilots and enterprise use cases.
+        </p>
       </div>
+
+      <div class="card">
+        <h3>Strong recipient verification</h3>
+        <p>
+          Recipient access is designed to prefer modern, phishing-resistant controls such as <strong>Passkeys/WebAuthn</strong>,
+          with <strong>Authenticator App (TOTP)</strong> support. Verification is treated as a compliance control, not a convenience feature.
+        </p>
+      </div>
+
       <div class="card">
         <h3>Event integrity</h3>
-        <p>Delivery events are recorded in a traceable form designed to support audit review and evidence workflows.</p>
+        <p>
+          Delivery lifecycle events are recorded in a traceable form intended for audit review and dispute workflows, with an emphasis on
+          controlled state transitions and tamper-evident logging posture (Lockbox Protocol™).
+        </p>
       </div>
+
       <div class="card">
         <h3>Defense in depth</h3>
-        <p>Multiple layers of controls: authentication, authorization, session handling, and secure storage patterns.</p>
+        <p>
+          Multiple layers of controls: authentication, authorization, secure session handling, CSRF protection, rate limiting,
+          input validation, and secure storage patterns.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Encryption & secrets handling</h3>
+        <p>
+          Sensitive values are designed to be protected at rest and in transit. Where recovery workflows are required,
+          VaultInbox uses a dual-control posture (e.g., verification hashes plus encrypted storage for controlled recovery paths).
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Operational integrity</h3>
+        <p>
+          The platform design favors clear, reviewable audit narratives: explicit actions, payment-confirmed finalization,
+          consistent timestamps, and durable retention controls to support compliance operations.
+        </p>
       </div>
     </div>
 
     <div class="hr"></div>
 
     <div class="section">
+      <h2>Security posture note</h2>
+      <p>
+        VaultInbox is designed to reduce physical failure modes (loss, theft, missed delivery, manual handling) by replacing them with
+        a controlled digital workflow. While no system can eliminate all risk, the intent is to strengthen identity assurance,
+        improve traceability, and produce evidence-oriented records suitable for audit and dispute evaluation.
+      </p>
+      <p class="small" style="margin-top:10px;">
+        Note: “admissibility” varies by jurisdiction and case context. VaultInbox’s posture is to improve defensibility,
+        not to claim universal acceptance.
+      </p>
+    </div>
+
+    <div class="section">
       <h2>Disclosure note</h2>
       <p>
-        Public materials describe architectural intent and control categories. Detailed security design and implementation specifics are
-        shared selectively with partners and investors under appropriate confidentiality.
+        Public materials describe architectural intent and control categories. Detailed security design, testing evidence,
+        and implementation specifics are shared selectively with partners and investors under appropriate confidentiality.
       </p>
     </div>
 
     <div class="footer">
       <a href="contact.html" class="btn primary">Contact</a>
       <span class="small" style="margin-left:10px;">
-        For diligence: architecture overview available on request •
+        For diligence: security and architecture overview available on request •
         <a href="mailto:investors@vaultinbox.cloud?subject=VaultInbox%20Security%20Diligence%20Request">investors@vaultinbox.cloud</a>
       </span>
     </div>

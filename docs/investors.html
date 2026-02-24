@@ -7,39 +7,40 @@
   <meta name="description" content="VaultInbox.cloud — audit-grade certified digital delivery for proof-required communications across USPS/UPS/FedEx-style workflows. Investor overview and diligence request." />
   <style>
     :root{
-      --brand:#8b938c;
+      /* --- VaultInbox Web-App Palette (exact) --- */
+      --brand:#8b938c;   /* MAIN */
+      --line:#e2e8f0;    /* LIGHT */
+      --bg:#ffffff;      /* WHITE */
+      --soft:#f8fafc;    /* neutral soft */
+      --dark:#2b211a;    /* DARK (brown) */
+
       --ink:#0f172a;
       --muted:#475569;
-      --bg:#ffffff;
-      --panel:#ffffff;
-      --line:#e2e8f0;
-      --soft:#f8fafc;
       --radius:16px;
       --shadow:0 6px 24px rgba(2,6,23,.06);
       --max:1100px;
 
-      /* Slide-like accents */
-      --dark:#1d2320; /* deep olive-brown vibe */
-      --dark2:#0b1220;
       --brandSoft: rgba(139,147,140,.12);
       --brandSoft2: rgba(139,147,140,.20);
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--ink);
-      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      background:linear-gradient(180deg, var(--bg) 0%, var(--soft) 100%);
     }
     a{color:inherit}
     .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 70px;}
+
     header{
       display:flex; align-items:center; justify-content:space-between;
       gap:14px; padding:14px 0 18px;
     }
     .brand{
       display:flex; align-items:center; gap:10px; text-decoration:none;
-      font-weight:700; letter-spacing:.2px;
+      font-weight:800; letter-spacing:.2px;
     }
     .dot{width:10px; height:10px; border-radius:50%; background:var(--brand); display:inline-block;}
     nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
@@ -49,8 +50,9 @@
       border:1px solid transparent;
       border-radius:999px;
       color:var(--muted);
-      font-weight:600;
+      font-weight:700;
       font-size:14px;
+      background: transparent;
     }
     nav a:hover{border-color:var(--line); background:#fff}
     nav a.active{border-color:var(--line); background:#fff; color:var(--ink)}
@@ -68,9 +70,11 @@
       gap:20px;
     }
     @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
+
     h1{margin:0 0 10px; font-size:42px; line-height:1.08}
     .lead{margin:0 0 10px; font-size:16px; color:var(--muted); line-height:1.55}
     .lead2{margin:0 0 18px; font-size:14px; color:var(--muted); line-height:1.6}
+
     .chips{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
     .chip{
       border:1px solid var(--line);
@@ -79,15 +83,16 @@
       border-radius:999px;
       font-size:12px;
       color:var(--muted);
-      font-weight:600;
+      font-weight:700;
     }
+
     .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px}
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
       padding:10px 14px;
       border-radius:12px;
       text-decoration:none;
-      font-weight:800;
+      font-weight:900;
       border:1px solid var(--line);
       background:#fff;
       color:var(--ink);
@@ -110,8 +115,8 @@
     .panel h3{margin:0 0 8px; font-size:16px}
     .kv{display:grid; gap:10px}
     .kv .row{display:flex; justify-content:space-between; gap:10px; align-items:flex-start}
-    .kv .k{color:var(--muted); font-weight:700; font-size:13px}
-    .kv .v{font-weight:800; font-size:13px}
+    .kv .k{color:var(--muted); font-weight:800; font-size:13px}
+    .kv .v{font-weight:950; font-size:13px}
     .divider{height:1px; background:var(--line); margin:18px 0}
 
     h2{font-size:20px; margin:26px 0 10px}
@@ -156,8 +161,11 @@
 
     .tag{
       display:inline-block; margin-left:8px; font-size:12px;
-      padding:5px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--muted);
-      font-weight:700;
+      padding:5px 10px; border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--muted);
+      font-weight:800;
     }
     .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .miniPill{
@@ -167,7 +175,7 @@
       border-radius:12px;
       font-size:12px;
       color:var(--muted);
-      font-weight:700;
+      font-weight:800;
     }
 
     /* FAQ */
@@ -179,7 +187,7 @@
       padding:12px 14px;
       box-shadow:0 10px 30px rgba(2,6,23,.03);
     }
-    summary{cursor:pointer; font-weight:900; color:var(--ink); font-size:14px;}
+    summary{cursor:pointer; font-weight:950; color:var(--ink); font-size:14px;}
     details p{margin-top:8px}
 
     /* --- Slide-style sections (deck-like) --- */
@@ -196,11 +204,12 @@
     .slide.dark{
       border-color: rgba(255,255,255,.12);
       background:
-        radial-gradient(900px 420px at 10% 10%, rgba(139,147,140,.22) 0%, rgba(29,35,32,1) 52%),
+        radial-gradient(900px 420px at 10% 10%, rgba(139,147,140,.24) 0%, rgba(43,33,26,1) 56%),
         var(--dark);
       color: #fff;
     }
-    .slide.dark p, .slide.dark .small{color: rgba(226,232,240,.90)}
+    .slide.dark p, .slide.dark .small{color: rgba(226,232,240,.92)}
+
     .slideHeader{
       display:flex;
       align-items:flex-end;
@@ -220,7 +229,7 @@
       color: var(--muted);
       font-weight: 850;
     }
-    .slide.dark .slideSub{color: rgba(226,232,240,.85)}
+    .slide.dark .slideSub{color: rgba(226,232,240,.88)}
     .badgeLine{
       display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
     }
@@ -231,16 +240,39 @@
       padding:6px 10px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 850;
+      font-weight: 900;
       white-space: nowrap;
     }
     .slide.dark .badgeChip{
-      border-color: rgba(226,232,240,.25);
+      border-color: rgba(226,232,240,.22);
       background: rgba(255,255,255,.06);
       color: rgba(226,232,240,.92);
     }
 
-    /* Big KPI row like slide 4 */
+    /* Quote strip (investor narrative) */
+    .quoteStrip{
+      margin-top: 10px;
+      border:1px solid rgba(226,232,240,.22);
+      background: rgba(255,255,255,.06);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+    .quoteStrip .q{
+      margin:0;
+      font-size: 13px;
+      font-weight: 850;
+      line-height: 1.6;
+      color: rgba(255,255,255,.95);
+    }
+    .quoteStrip .q strong{color:#fff}
+    .quoteStrip .attr{
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(226,232,240,.88);
+    }
+
+    /* Big KPI row */
     .kpiGrid{
       display:grid;
       grid-template-columns: repeat(2, 1fr);
@@ -256,7 +288,7 @@
       box-shadow: 0 10px 30px rgba(2,6,23,.04);
     }
     .slide.dark .kpiCard{
-      border-color: rgba(226,232,240,.18);
+      border-color: rgba(226,232,240,.16);
       background: rgba(255,255,255,.06);
       box-shadow: none;
     }
@@ -271,21 +303,21 @@
     .kpiLbl{
       margin-top: 6px;
       font-size: 13px;
-      font-weight: 850;
+      font-weight: 900;
       color: var(--muted);
       line-height: 1.3;
     }
-    .slide.dark .kpiLbl{color: rgba(226,232,240,.90)}
+    .slide.dark .kpiLbl{color: rgba(226,232,240,.92)}
     .kpiHint{
       margin-top: 8px;
       font-size: 12px;
       color: var(--muted);
       line-height: 1.45;
-      font-weight: 700;
+      font-weight: 750;
     }
     .slide.dark .kpiHint{color: rgba(226,232,240,.88)}
 
-    /* Segment blocks like slide 4 */
+    /* Segment blocks */
     .segGrid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -304,6 +336,7 @@
       font-weight: 950;
       font-size: 13px;
       letter-spacing: .3px;
+      color: var(--ink);
     }
     .segDot{
       width: 10px; height: 10px; border-radius: 3px; background: var(--brand);
@@ -320,51 +353,52 @@
       font-size: 12px;
       color: var(--muted);
       line-height: 1.5;
-      font-weight: 650;
+      font-weight: 700;
     }
 
-    /* Revenue projections like slide 7 */
-    .revGrid{
+    /* Tailwind mini-slide */
+    .tailGrid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
       margin-top: 10px;
     }
-    @media (max-width:900px){ .revGrid{grid-template-columns:1fr} }
-    .revCard{
-      border:1px solid var(--line);
-      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+    @media (max-width:900px){ .tailGrid{grid-template-columns:1fr} }
+    .tailCard{
+      border:1px solid rgba(226,232,240,.18);
+      background: rgba(255,255,255,.06);
       border-radius: 18px;
-      padding: 16px;
+      padding: 14px;
     }
-    .revHdr{display:flex; justify-content:space-between; gap:10px; align-items:baseline;}
-    .revStage{font-weight: 950; font-size: 14px; letter-spacing: .3px; color: var(--ink);}
-    .revTime{font-weight: 900; font-size: 12px; color: var(--muted);}
-    .revVal{margin-top: 10px; font-size: 26px; font-weight: 950; color: var(--ink);}
-    .revMeta{margin-top: 8px; font-size: 12px; color: var(--muted); line-height: 1.55; font-weight: 700;}
-
-    /* Traction like slide 8 */
-    .trkGrid{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-top: 10px;
+    .tailNum{
+      font-size: 30px;
+      font-weight: 950;
+      color: #fff;
+      line-height: 1.05;
     }
-    @media (max-width:900px){ .trkGrid{grid-template-columns:1fr} }
-    .trk{border:1px solid var(--line); background: #fff; border-radius: 18px; padding: 16px;}
-    .trkNum{font-size: 36px; font-weight: 950; color: var(--ink); line-height: 1.05;}
-    .trkLbl{margin-top: 6px; font-size: 12px; font-weight: 900; color: var(--muted); letter-spacing: .2px; line-height: 1.35;}
-    .flowStrip{
+    .tailLbl{
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 850;
+      color: rgba(226,232,240,.92);
+      line-height: 1.4;
+    }
+    .tailNote{
       margin-top: 12px;
-      border:1px dashed rgba(139,147,140,.55);
-      background: rgba(139,147,140,.06);
+      border:1px dashed rgba(226,232,240,.24);
+      background: rgba(255,255,255,.04);
       border-radius: 18px;
       padding: 12px 14px;
     }
-    .flowStrip .t{font-weight: 950; color: var(--ink); font-size: 13px; margin: 0 0 6px;}
-    .flowStrip .p{margin:0; font-size: 12px; color: var(--muted); font-weight: 700; line-height: 1.6;}
+    .tailNote p{
+      margin:0;
+      color: rgba(226,232,240,.92);
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1.65;
+    }
 
-    /* Competitive landscape table (deck-like) */
+    /* Competitive landscape table */
     .tableWrap{
       margin-top: 10px;
       border:1px solid var(--line);
@@ -392,7 +426,7 @@
       padding:12px 12px;
       border-bottom: 1px solid var(--line);
       color: var(--muted);
-      font-weight: 700;
+      font-weight: 750;
       vertical-align: top;
     }
     tbody tr:nth-child(even) td{ background: #fcfdff; }
@@ -401,21 +435,49 @@
     .colStrong{color: var(--ink); font-weight: 950;}
     .yes{color: var(--ink); font-weight: 950;}
     .no{color: #64748b; font-weight: 900;}
-    .vb{
-      color: var(--ink);
-      font-weight: 950;
-      background: rgba(139,147,140,.10);
-      border-left: 3px solid var(--brand);
-    }
-    .vb td{ color: var(--ink); }
-    .vb td:nth-child(1){ background: rgba(139,147,140,.10); }
-    .vb td{ background: rgba(139,147,140,.10); }
+    .vb td{ background: rgba(139,147,140,.10); color: var(--ink); }
+    .vb td:first-child{ border-left: 3px solid var(--brand); }
 
-    @media (max-width: 900px){
-      table{font-size:12px}
-      thead th, tbody td{padding:10px}
-      .colFeature{width:auto}
+    /* Revenue projections */
+    .revGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
     }
+    @media (max-width:900px){ .revGrid{grid-template-columns:1fr} }
+    .revCard{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .revHdr{display:flex; justify-content:space-between; gap:10px; align-items:baseline;}
+    .revStage{font-weight: 950; font-size: 14px; letter-spacing: .3px; color: var(--ink);}
+    .revTime{font-weight: 900; font-size: 12px; color: var(--muted);}
+    .revVal{margin-top: 10px; font-size: 26px; font-weight: 950; color: var(--ink);}
+    .revMeta{margin-top: 8px; font-size: 12px; color: var(--muted); line-height: 1.55; font-weight: 750;}
+
+    /* Traction */
+    .trkGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width:900px){ .trkGrid{grid-template-columns:1fr} }
+    .trk{border:1px solid var(--line); background: #fff; border-radius: 18px; padding: 16px;}
+    .trkNum{font-size: 36px; font-weight: 950; color: var(--ink); line-height: 1.05;}
+    .trkLbl{margin-top: 6px; font-size: 12px; font-weight: 900; color: var(--muted); letter-spacing: .2px; line-height: 1.35;}
+    .flowStrip{
+      margin-top: 12px;
+      border:1px dashed rgba(139,147,140,.55);
+      background: rgba(139,147,140,.06);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+    .flowStrip .t{font-weight: 950; color: var(--ink); font-size: 13px; margin: 0 0 6px;}
+    .flowStrip .p{margin:0; font-size: 12px; color: var(--muted); font-weight: 800; line-height: 1.6;}
   </style>
 </head>
 
@@ -509,7 +571,7 @@
       Meanwhile, “digital” substitutes like email read receipts lack defensible chain-of-custody.
     </p>
 
-    <!-- SLIDE-STYLE MARKET OPPORTUNITY (matches deck) -->
+    <!-- MARKET OPPORTUNITY (deck-like) -->
     <section class="slide dark" aria-label="Market Opportunity">
       <div class="slideHeader">
         <div>
@@ -518,21 +580,31 @@
         </div>
         <div class="badgeLine" aria-label="Badges">
           <span class="badgeChip">$257B ecosystem</span>
-          <span class="badgeChip">$31–48B proof layer</span>
-          <span class="badgeChip">B2B → B2C/C2C</span>
+          <span class="badgeChip">$31–48B proof slice</span>
+          <span class="badgeChip">B2B + B2C + C2C</span>
         </div>
+      </div>
+
+      <!-- Your exact investor narrative quote -->
+      <div class="quoteStrip" aria-label="Investor narrative">
+        <p class="q">
+          “The U.S. mail ecosystem is a <strong>$257B</strong> market, but VaultInbox targets the <strong>$31–48B</strong> slice
+          where people pay specifically for proof. Certified Mail exists because proof is required — VaultInbox delivers stronger proof
+          without the physical failure modes.”
+        </p>
+        <div class="attr">— VaultInbox positioning (investor narrative)</div>
       </div>
 
       <div class="kpiGrid" aria-label="Top KPIs">
         <div class="kpiCard">
           <div class="kpiVal">$257B</div>
           <div class="kpiLbl">Combined USPS + UPS + FedEx annual revenue</div>
-          <div class="kpiHint">Legacy physical infrastructure under pricing expansion and volume pressure.</div>
+          <div class="kpiHint">Large physical infrastructure under pricing expansion and volume pressure.</div>
         </div>
         <div class="kpiCard">
           <div class="kpiVal">$31–48B</div>
-          <div class="kpiLbl">Serviceable “proof-required” market (SAM)</div>
-          <div class="kpiHint">Certified/document proof workflows + soft-cost burden (directional framing).</div>
+          <div class="kpiLbl">Serviceable “proof-required” market</div>
+          <div class="kpiHint">Certified + legal document delivery + soft-cost burden (directional framing).</div>
         </div>
       </div>
 
@@ -540,22 +612,64 @@
         <div class="seg">
           <div class="segTag"><span class="segDot"></span> B2B</div>
           <div class="segVal">$1.5–4.5B</div>
-          <div class="segDesc">Law firms, HR, collections, insurance, compliance teams. High willingness-to-pay for proof and auditability.</div>
+          <div class="segDesc">Law firms, HR, collections, insurance. High willingness-to-pay for auditability + proof.</div>
         </div>
         <div class="seg">
           <div class="segTag"><span class="segDot"></span> B2C</div>
           <div class="segVal">$750M–2B</div>
-          <div class="segDesc">Institutions → consumers: government, healthcare, landlords. Reduces disputes and recipient friction.</div>
+          <div class="segDesc">Institutions → consumers: notices and documents where dispute cost is high.</div>
         </div>
         <div class="seg">
           <div class="segTag"><span class="segDot"></span> C2C</div>
           <div class="segVal">$200–500M</div>
-          <div class="segDesc">Peer-to-peer: disputes, contracts, small claims, family legal. Proof delivery without carrier trips.</div>
+          <div class="segDesc">Peer-to-peer proof delivery: disputes, small claims, contracts, family legal matters.</div>
         </div>
       </div>
 
       <p class="small" style="margin-top:12px;">
         Note: figures shown here are for investor framing. Source citations and updated baselines are provided in diligence materials.
+      </p>
+    </section>
+
+    <!-- NEW: TAILWIND MINI-SLIDE -->
+    <section class="slide dark" aria-label="Tailwind: Mail Theft Crisis">
+      <div class="slideHeader">
+        <div>
+          <h2 class="slideTitle" style="margin:0;">Tailwind: Mail Theft Crisis</h2>
+          <p class="slideSub" style="margin:6px 0 0;">Physical delivery creates unavoidable exposure: theft, loss, and chain-of-custody gaps.</p>
+        </div>
+        <div class="badgeLine">
+          <span class="badgeChip">Risk increases value</span>
+          <span class="badgeChip">Proof becomes premium</span>
+          <span class="badgeChip">Digital reduces exposure</span>
+        </div>
+      </div>
+
+      <div class="tailGrid" aria-label="Tailwind KPIs">
+        <div class="tailCard">
+          <div class="tailNum">Theft Risk</div>
+          <div class="tailLbl">Physical mail creates an exposed attack surface (boxes, sorting, pickup, redelivery).</div>
+        </div>
+        <div class="tailCard">
+          <div class="tailNum">Dispute Cost</div>
+          <div class="tailLbl">Missed notices, delayed delivery, and disputed receipt create compliance and legal friction.</div>
+        </div>
+        <div class="tailCard">
+          <div class="tailNum">Proof Premium</div>
+          <div class="tailLbl">When proof is required, buyers pay more — especially as physical reliability degrades.</div>
+        </div>
+      </div>
+
+      <div class="tailNote" aria-label="Tailwind note">
+        <p>
+          VaultInbox wins as a “proof layer” because it <strong>eliminates physical failure modes</strong> (missed delivery slips,
+          trips to the post office, exposed mail pieces) while producing a stronger evidence posture: controlled access, audit trail,
+          and certificate outputs. This is why price increases by incumbents expand VaultInbox’ relative advantage.
+        </p>
+      </div>
+
+      <p class="small" style="margin-top:12px;">
+        Tailwind section: designed to match the deck’s “risk → premium proof” narrative structure.
       </p>
     </section>
 
@@ -574,7 +688,7 @@
         <h3>Why it’s defensible</h3>
         <p>Auditability and access-control discipline are engineered into core workflows—not bolted on after the fact.</p>
         <ul>
-          <li>Defense-in-depth mindset (authn/authz/session controls)</li>
+          <li>Defense-in-depth (authn/authz/session discipline)</li>
           <li>Event integrity as a product requirement</li>
           <li>Selective disclosure for security-sensitive details</li>
         </ul>
@@ -591,7 +705,7 @@
       </div>
     </div>
 
-    <!-- COMPETITIVE LANDSCAPE (matches deck competitive slide) -->
+    <!-- COMPETITIVE LANDSCAPE -->
     <section class="slide" aria-label="Competitive Landscape">
       <div class="slideHeader">
         <div>
@@ -633,10 +747,10 @@
               <td class="vb">$3–8</td>
             </tr>
             <tr>
-              <td class="colFeature">Legal-grade proof</td>
+              <td class="colFeature">Proof posture</td>
               <td class="yes">✓ Paper</td>
               <td class="yes">✓ Paper</td>
-              <td class="no">✗</td>
+              <td class="no">✗ Weak</td>
               <td class="vb">✓ Digital</td>
             </tr>
             <tr>
@@ -647,7 +761,7 @@
               <td class="vb">✓</td>
             </tr>
             <tr>
-              <td class="colFeature">Recipient ID assurance</td>
+              <td class="colFeature">Recipient identity assurance</td>
               <td>Signature</td>
               <td>Signature</td>
               <td class="no">✗</td>
@@ -658,7 +772,7 @@
               <td class="no">✗</td>
               <td class="no">✗</td>
               <td class="no">✗</td>
-              <td class="vb">✓ Immutable</td>
+              <td class="vb">✓</td>
             </tr>
             <tr>
               <td class="colFeature">Evidence package</td>
@@ -668,7 +782,7 @@
               <td class="vb">✓ PDF cert</td>
             </tr>
             <tr>
-              <td class="colFeature">Theft risk</td>
+              <td class="colFeature">Physical theft exposure</td>
               <td>High</td>
               <td>Medium</td>
               <td>N/A</td>
@@ -679,11 +793,11 @@
       </div>
 
       <p class="small" style="margin-top:12px;">
-        Competitive framing aligned to the investor deck positioning and feature comparison. :contentReference[oaicite:3]{index=3}
+        Table values are directional for investor framing; exact pricing varies by service level and location.
       </p>
     </section>
 
-    <!-- SLIDE-STYLE REVENUE PROJECTIONS -->
+    <!-- REVENUE PROJECTIONS -->
     <section class="slide" aria-label="Revenue Projections">
       <div class="slideHeader">
         <div>
@@ -736,11 +850,11 @@
       </div>
 
       <p class="small" style="margin-top:12px;">
-        Note: projections shown are for illustrative planning and diligence discussion; they are not a promise of results. :contentReference[oaicite:4]{index=4}
+        Note: projections shown are illustrative planning scenarios; not a promise of results.
       </p>
     </section>
 
-    <!-- SLIDE-STYLE PRODUCT STATUS -->
+    <!-- PRODUCT STATUS -->
     <section class="slide" aria-label="Product Status & Traction">
       <div class="slideHeader">
         <div>
@@ -777,10 +891,6 @@
           Stage: MVP / Pilot-Ready • Location: Fargo, ND (Remote-First)
         </p>
       </div>
-
-      <p class="small" style="margin-top:12px;">
-        Metrics and workflow milestones aligned to the investor deck execution summary. :contentReference[oaicite:5]{index=5}
-      </p>
     </section>
 
     <h2>What we’re asking for</h2>
@@ -833,8 +943,8 @@
       <details>
         <summary>How is this different from USPS/UPS/FedEx?</summary>
         <p>
-          Those carriers are logistics businesses; their “proof” is still attached to physical handling. VaultInbox competes on the proof layer:
-          digital-native event integrity, controlled recipient access, and evidence packaging without missed delivery attempts or theft exposure.
+          Those carriers are logistics businesses; their “proof” is attached to physical handling. VaultInbox competes on the proof layer:
+          digital-native event integrity, controlled recipient access, and evidence packaging without missed delivery slips or theft exposure.
         </p>
       </details>
 
@@ -882,7 +992,7 @@
         <summary>What is the key moat?</summary>
         <p>
           Architectural moat: evidence-first workflow design, tamper-evident audit posture, and strong recipient assurance (Passkey-first with TOTP support).
-          Physical carriers can’t “patch” their way into eliminating physical attack surfaces.
+          Physical carriers can’t remove physical attack surfaces without rebuilding from scratch.
         </p>
       </details>
 

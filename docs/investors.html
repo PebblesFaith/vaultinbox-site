@@ -18,7 +18,8 @@
       --shadow:0 6px 24px rgba(2,6,23,.06);
       --max:1100px;
 
-      --dark:#1f2937;
+      /* Slide-like accents */
+      --dark:#1d2320; /* deep olive-brown-ish (dark background vibe) */
       --dark2:#0b1220;
       --brandSoft: rgba(139,147,140,.12);
       --brandSoft2: rgba(139,147,140,.20);
@@ -153,9 +154,7 @@
       padding:5px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--muted);
       font-weight:700;
     }
-    .pillRow{
-      display:flex; gap:10px; flex-wrap:wrap; margin-top:10px
-    }
+    .pillRow{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
     .miniPill{
       border:1px solid var(--line);
       background:var(--soft);
@@ -165,11 +164,7 @@
       color:var(--muted);
       font-weight:700;
     }
-    .faq{
-      margin-top:10px;
-      display:grid;
-      gap:10px;
-    }
+    .faq{margin-top:10px; display:grid; gap:10px;}
     details{
       border:1px solid var(--line);
       background:#fff;
@@ -177,72 +172,238 @@
       padding:12px 14px;
       box-shadow:0 10px 30px rgba(2,6,23,.03);
     }
-    summary{
-      cursor:pointer;
-      font-weight:800;
-      color:var(--ink);
-      font-size:14px;
-    }
+    summary{cursor:pointer; font-weight:800; color:var(--ink); font-size:14px;}
     details p{margin-top:8px}
 
-    /* --- Visuals (Charts) --- */
-    .charts{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      margin-top:12px;
+    /* --- Slide-style sections (deck-like) --- */
+    .slide{
+      border-radius: calc(var(--radius) + 10px);
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-top: 14px;
+      position: relative;
+      overflow: hidden;
     }
-    @media (max-width: 900px){ .charts{grid-template-columns:1fr} }
-
-    .chart{
+    .slide.dark{
+      border-color: rgba(255,255,255,.12);
+      background:
+        radial-gradient(900px 420px at 10% 10%, rgba(139,147,140,.22) 0%, rgba(29,35,32,1) 52%),
+        var(--dark);
+      color: #fff;
+    }
+    .slide.dark p, .slide.dark .small{color: rgba(226,232,240,.90)}
+    .slideHeader{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom: 12px;
+    }
+    .slideTitle{
+      margin:0;
+      font-size: 18px;
+      font-weight: 950;
+      letter-spacing: .2px;
+    }
+    .slideSub{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 800;
+    }
+    .slide.dark .slideSub{color: rgba(226,232,240,.85)}
+    .badgeLine{
+      display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .badgeChip{
       border:1px solid var(--line);
       background:#fff;
-      border-radius:var(--radius);
-      padding:16px;
-      box-shadow:var(--shadow);
+      color: var(--muted);
+      padding:6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
     }
-    .chart h3{margin:0 0 6px; font-size:16px}
-    .chart .note{margin:0 0 10px; font-size:12px; color:var(--muted)}
-    .barRow{display:grid; gap:10px; margin-top:10px}
-    .barItem{display:grid; gap:6px}
-    .barTop{display:flex; justify-content:space-between; gap:10px; font-size:12px; color:var(--muted); font-weight:800}
-    .barTrack{
-      width:100%;
-      height:12px;
-      background:var(--soft);
-      border:1px solid var(--line);
-      border-radius:999px;
-      overflow:hidden;
-    }
-    .barFill{
-      height:100%;
-      background:linear-gradient(90deg, var(--brand) 0%, rgba(139,147,140,.55) 100%);
-      border-radius:999px;
+    .slide.dark .badgeChip{
+      border-color: rgba(226,232,240,.25);
+      background: rgba(255,255,255,.06);
+      color: rgba(226,232,240,.92);
     }
 
-    .kpiRow{
+    /* Big KPI row like slide 4 */
+    .kpiGrid{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width:900px){ .kpiGrid{grid-template-columns:1fr} }
+    .kpiCard{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 10px 30px rgba(2,6,23,.04);
+    }
+    .slide.dark .kpiCard{
+      border-color: rgba(226,232,240,.18);
+      background: rgba(255,255,255,.06);
+      box-shadow: none;
+    }
+    .kpiVal{
+      font-size: 40px;
+      font-weight: 950;
+      letter-spacing: .2px;
+      line-height: 1.05;
+      color: var(--ink);
+    }
+    .slide.dark .kpiVal{color:#fff}
+    .kpiLbl{
+      margin-top: 6px;
+      font-size: 13px;
+      font-weight: 850;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .slide.dark .kpiLbl{color: rgba(226,232,240,.90)}
+    .kpiHint{
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+    .slide.dark .kpiHint{color: rgba(226,232,240,.88)}
+
+    /* Segment blocks like slide 4 */
+    .segGrid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
-      gap:12px;
-      margin-top:12px;
+      gap: 12px;
+      margin-top: 12px;
     }
-    @media (max-width: 900px){ .kpiRow{grid-template-columns:1fr} }
-    .kpi{
+    @media (max-width:900px){ .segGrid{grid-template-columns:1fr} }
+    .seg{
       border:1px solid var(--line);
-      background:linear-gradient(180deg, #fff 0%, #f8fafc 100%);
-      border-radius:14px;
-      padding:14px;
+      background:#fff;
+      border-radius: 18px;
+      padding: 14px 14px 12px;
     }
-    .kpi .v{font-size:26px; font-weight:900; letter-spacing:.2px; color:var(--ink)}
-    .kpi .k{margin-top:4px; font-size:12px; color:var(--muted); font-weight:800}
-    .kpi .sub{margin-top:6px; font-size:12px; color:var(--muted); line-height:1.5}
+    .segTag{
+      display:inline-flex; align-items:center; gap:8px;
+      font-weight: 950;
+      font-size: 13px;
+      letter-spacing: .3px;
+    }
+    .segDot{
+      width: 10px; height: 10px; border-radius: 3px; background: var(--brand);
+      display:inline-block;
+    }
+    .segVal{
+      margin-top: 8px;
+      font-size: 22px;
+      font-weight: 950;
+      color: var(--ink);
+    }
+    .segDesc{
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      font-weight: 650;
+    }
 
-    .mutedBox{
+    /* Revenue projections like slide 7 */
+    .revGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width:900px){ .revGrid{grid-template-columns:1fr} }
+    .revCard{
       border:1px solid var(--line);
-      background:var(--soft);
-      border-radius:14px;
-      padding:12px 14px;
-      margin-top:10px;
+      background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .revHdr{
+      display:flex; justify-content:space-between; gap:10px; align-items:baseline;
+    }
+    .revStage{
+      font-weight: 950;
+      font-size: 14px;
+      letter-spacing: .3px;
+      color: var(--ink);
+    }
+    .revTime{
+      font-weight: 900;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .revVal{
+      margin-top: 10px;
+      font-size: 26px;
+      font-weight: 950;
+      color: var(--ink);
+    }
+    .revMeta{
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    /* Traction like slide 8 */
+    .trkGrid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 10px;
+    }
+    @media (max-width:900px){ .trkGrid{grid-template-columns:1fr} }
+    .trk{
+      border:1px solid var(--line);
+      background: #fff;
+      border-radius: 18px;
+      padding: 16px;
+    }
+    .trkNum{
+      font-size: 36px;
+      font-weight: 950;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .trkLbl{
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 900;
+      color: var(--muted);
+      letter-spacing: .2px;
+      line-height: 1.35;
+    }
+    .flowStrip{
+      margin-top: 12px;
+      border:1px dashed rgba(139,147,140,.55);
+      background: rgba(139,147,140,.06);
+      border-radius: 18px;
+      padding: 12px 14px;
+    }
+    .flowStrip .t{
+      font-weight: 950;
+      color: var(--ink);
+      font-size: 13px;
+      margin: 0 0 6px;
+    }
+    .flowStrip .p{
+      margin:0;
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.6;
     }
   </style>
 </head>
@@ -294,7 +455,7 @@
           <span class="chip">Founder-led engineering</span>
         </div>
 
-        <div class="mutedBox">
+        <div class="callout" style="margin-top:12px;">
           <p class="small" style="margin:0;">
             Evidence posture note: VaultInbox is designed to produce records that courts and auditors can evaluate.
             <strong>Legal admissibility varies</strong> by jurisdiction and case context.
@@ -337,6 +498,56 @@
       Meanwhile, “digital” substitutes like email read receipts lack defensible chain-of-custody.
     </p>
 
+    <!-- SLIDE-STYLE MARKET OPPORTUNITY (matches PPTX Page 4) -->
+    <section class="slide dark" aria-label="Market Opportunity">
+      <div class="slideHeader">
+        <div>
+          <h2 class="slideTitle" style="margin:0;">Market Opportunity</h2>
+          <p class="slideSub" style="margin:6px 0 0;">A proof-layer wedge inside a large legacy carrier ecosystem.</p>
+        </div>
+        <div class="badgeLine" aria-label="Badges">
+          <span class="badgeChip">$257B ecosystem</span>
+          <span class="badgeChip">$31–48B proof layer</span>
+          <span class="badgeChip">B2B → B2C/C2C</span>
+        </div>
+      </div>
+
+      <div class="kpiGrid" aria-label="Top KPIs">
+        <div class="kpiCard">
+          <div class="kpiVal">$257B</div>
+          <div class="kpiLbl">Combined USPS + UPS + FedEx annual revenue</div>
+          <div class="kpiHint">Legacy physical infrastructure under pricing expansion and volume pressure.</div>
+        </div>
+        <div class="kpiCard">
+          <div class="kpiVal">$31–48B</div>
+          <div class="kpiLbl">Serviceable “proof-required” market (SAM)</div>
+          <div class="kpiHint">Certified/compliance document delivery + soft-cost burden (directional framing).</div>
+        </div>
+      </div>
+
+      <div class="segGrid" aria-label="Segments">
+        <div class="seg">
+          <div class="segTag"><span class="segDot"></span> B2B</div>
+          <div class="segVal">$1.5–4.5B</div>
+          <div class="segDesc">Law firms, HR, collections, insurance, compliance teams. High willingness-to-pay for proof and auditability.</div>
+        </div>
+        <div class="seg">
+          <div class="segTag"><span class="segDot"></span> B2C</div>
+          <div class="segVal">$750M–2B</div>
+          <div class="segDesc">Institutions → consumers: government, healthcare, landlords. Reduces disputes and recipient friction.</div>
+        </div>
+        <div class="seg">
+          <div class="segTag"><span class="segDot"></span> C2C</div>
+          <div class="segVal">$200–500M</div>
+          <div class="segDesc">Peer-to-peer: disputes, contracts, small claims, family legal. Proof delivery without carrier trips.</div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:12px;">
+        Note: figures shown here are for investor framing. Source citations and updated baselines are provided in diligence materials.
+      </p>
+    </section>
+
     <div class="grid" aria-label="Core sections">
       <div class="card">
         <h3>Solution</h3>
@@ -375,88 +586,101 @@
       </div>
     </div>
 
-    <h2>Market framing (visual)</h2>
-    <p>
-      VaultInbox does not compete on parcel logistics. It competes on the <strong>proof layer</strong>—where customers pay for verifiable delivery,
-      retention, and dispute defensibility across USPS/UPS/FedEx-style document workflows.
-    </p>
+    <!-- SLIDE-STYLE REVENUE PROJECTIONS (matches PPTX Page 7) -->
+    <section class="slide" aria-label="Revenue Projections">
+      <div class="slideHeader">
+        <div>
+          <h2 class="slideTitle" style="margin:0;">Revenue Projections</h2>
+          <p class="slideSub" style="margin:6px 0 0;">Illustrative scenarios based on proof-layer capture.</p>
+        </div>
+        <div class="badgeLine">
+          <span class="badgeChip">$31B+ SAM baseline</span>
+          <span class="badgeChip">Share capture model</span>
+          <span class="badgeChip">Illustrative</span>
+        </div>
+      </div>
 
-    <div class="charts" aria-label="Market charts">
-      <div class="chart">
-        <h3>Legacy ecosystem context (illustrative)</h3>
-        <p class="note">Shows relative scale of the physical delivery ecosystem. Values are directional for framing.</p>
-        <div class="barRow">
-          <div class="barItem">
-            <div class="barTop"><span>USPS</span><span>~$80.5B</span></div>
-            <div class="barTrack"><div class="barFill" style="width:91%"></div></div>
+      <div class="revGrid" aria-label="Projection stages">
+        <div class="revCard">
+          <div class="revHdr">
+            <div class="revStage">PILOT / MVP</div>
+            <div class="revTime">Year 1–2</div>
           </div>
-          <div class="barItem">
-            <div class="barTop"><span>UPS</span><span>~$88.7B</span></div>
-            <div class="barTrack"><div class="barFill" style="width:100%"></div></div>
-          </div>
-          <div class="barItem">
-            <div class="barTop"><span>FedEx</span><span>~$87.9B</span></div>
-            <div class="barTrack"><div class="barFill" style="width:99%"></div></div>
+          <div class="revVal">$31K – $3.1M</div>
+          <div class="revMeta">
+            Market capture: <strong>0.001–0.01%</strong><br/>
+            Early design partners + limited-scope paid pilots.
           </div>
         </div>
-        <p class="small" style="margin-top:10px;">
-          Interpretation: a massive physical ecosystem under volume pressure and pricing expansion—creating space for digital proof modernization.
-        </p>
-      </div>
 
-      <div class="chart">
-        <h3>Where VaultInbox plays (illustrative)</h3>
-        <p class="note">Proof-required spend: certified/compliance delivery + soft costs (labor, reprints, disputes).</p>
-        <div class="kpiRow" aria-label="Proof-layer KPIs">
-          <div class="kpi">
-            <div class="v">$31–48B</div>
-            <div class="k">Economic “proof layer”</div>
-            <div class="sub">Certified + document proof workflows + soft costs (directional).</div>
+        <div class="revCard">
+          <div class="revHdr">
+            <div class="revStage">GROWTH</div>
+            <div class="revTime">Year 2–4</div>
           </div>
-          <div class="kpi">
-            <div class="v">3</div>
-            <div class="k">Segments</div>
-            <div class="sub">B2B (wedge), B2C (institutions), C2C (peer-to-peer).</div>
-          </div>
-          <div class="kpi">
-            <div class="v">Pilot</div>
-            <div class="k">Stage</div>
-            <div class="sub">Hardening + design partners; controlled rollout posture.</div>
+          <div class="revVal">$31M – $155M</div>
+          <div class="revMeta">
+            Market capture: <strong>0.1–0.5%</strong><br/>
+            Vertical expansion + integrations + annual commitments.
           </div>
         </div>
-        <p class="small" style="margin-top:10px;">
-          Note: figures are used for investor framing. Source citations and updated market baselines are provided in diligence materials.
+
+        <div class="revCard">
+          <div class="revHdr">
+            <div class="revStage">NATIONAL SCALE</div>
+            <div class="revTime">Year 4–7</div>
+          </div>
+          <div class="revVal">$310M – $930M</div>
+          <div class="revMeta">
+            Market capture: <strong>1–3%</strong><br/>
+            Broad institutional adoption + API ecosystem + licensing.
+          </div>
+        </div>
+      </div>
+
+      <p class="small" style="margin-top:12px;">
+        Note: projections shown are for illustrative planning and diligence discussion; they are not a promise of results.
+      </p>
+    </section>
+
+    <!-- SLIDE-STYLE PRODUCT STATUS (matches PPTX Page 8) -->
+    <section class="slide" aria-label="Product Status & Traction">
+      <div class="slideHeader">
+        <div>
+          <h2 class="slideTitle" style="margin:0;">Product Status &amp; Traction</h2>
+          <p class="slideSub" style="margin:6px 0 0;">Execution signals tied to validated workflow behavior.</p>
+        </div>
+        <div class="badgeLine">
+          <span class="badgeChip">MVP / Pilot-ready</span>
+          <span class="badgeChip">Paid lifecycle validated</span>
+          <span class="badgeChip">Security-first posture</span>
+        </div>
+      </div>
+
+      <div class="trkGrid" aria-label="Traction KPIs">
+        <div class="trk">
+          <div class="trkNum">84%</div>
+          <div class="trkLbl">MVP completion</div>
+        </div>
+        <div class="trk">
+          <div class="trkNum">92%</div>
+          <div class="trkLbl">Demo readiness</div>
+        </div>
+        <div class="trk">
+          <div class="trkNum">100%</div>
+          <div class="trkLbl">End-to-end workflow validated</div>
+        </div>
+      </div>
+
+      <div class="flowStrip" aria-label="Validated workflow strip">
+        <p class="t">Validated end-to-end workflow</p>
+        <p class="p">
+          Draft → Tracking UUID → Receipt Preview → Stripe Checkout → Payment Confirmed → Finalize/Send → Sent Ledger View
+          <br/>
+          Stage: MVP / Pilot-Ready • Location: Fargo, ND (Remote-First)
         </p>
       </div>
-    </div>
-
-    <h2>Evidence posture (what can be proven)</h2>
-    <div class="grid" aria-label="Evidence posture">
-      <div class="card">
-        <h3>Delivery lifecycle events</h3>
-        <ul>
-          <li>When an item was prepared and finalized</li>
-          <li>Timestamped event trail designed for review</li>
-          <li>Consistent state transitions for audit clarity</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Integrity posture</h3>
-        <ul>
-          <li>Audit trail designed to be reviewable</li>
-          <li>Evidence-oriented certificate outputs</li>
-          <li>Change awareness and accountability posture</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Access control</h3>
-        <ul>
-          <li>Least-privilege mindset</li>
-          <li>Defense-in-depth controls</li>
-          <li>Passkey-first verification + TOTP support</li>
-        </ul>
-      </div>
-    </div>
+    </section>
 
     <h2>What we’re asking for</h2>
     <div class="grid2" aria-label="Ask">
@@ -498,16 +722,9 @@
     <h2>Investor FAQ</h2>
     <div class="faq" aria-label="FAQ">
       <details>
-        <summary>How is this different from email?</summary>
-        <p>
-          VaultInbox is designed around auditable lifecycle events and evidence-oriented documentation for proof-required communications,
-          not general-purpose messaging.
-        </p>
-      </details>
-      <details>
         <summary>How is this different from USPS/UPS/FedEx?</summary>
         <p>
-          Those carriers excel at logistics, but their “proof” remains tied to physical handling. VaultInbox targets the proof layer:
+          Those carriers excel at logistics, but their proof remains tied to physical handling. VaultInbox targets the proof layer:
           digital-native chain-of-events posture, controlled access, and evidence-oriented records—without physical failure modes.
         </p>
       </details>
@@ -521,7 +738,7 @@
       <details>
         <summary>What is the initial revenue model?</summary>
         <p>
-          Usage-based (pay-per-delivery), with optional add-ons aligned to compliance value (retention, additional certificate copies,
+          Usage-based (pay-per-delivery), with optional add-ons aligned to compliance value (retention, certificate copies,
           and higher-assurance delivery controls).
         </p>
       </details>
@@ -530,13 +747,6 @@
         <p>
           Workflows are designed for traceability and review: controlled state transitions, event integrity posture, defensible records,
           and evidence-oriented certificate output for audit and dispute contexts.
-        </p>
-      </details>
-      <details>
-        <summary>What’s the best way to engage?</summary>
-        <p>
-          Email <strong><a href="mailto:investors@vaultinbox.cloud?subject=VaultInbox%20Investor%20Intro%20Request">investors@vaultinbox.cloud</a></strong>
-          for an intro request, or use the contact page to request diligence materials.
         </p>
       </details>
     </div>

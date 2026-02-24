@@ -19,7 +19,7 @@
       --max:1100px;
 
       /* Slide-like accents */
-      --dark:#1d2320; /* deep olive-brown-ish (dark background vibe) */
+      --dark:#1d2320; /* deep olive-brown vibe */
       --dark2:#0b1220;
       --brandSoft: rgba(139,147,140,.12);
       --brandSoft2: rgba(139,147,140,.20);
@@ -54,6 +54,7 @@
     }
     nav a:hover{border-color:var(--line); background:#fff}
     nav a.active{border-color:var(--line); background:#fff; color:var(--ink)}
+
     .hero{
       border:1px solid var(--line);
       background:
@@ -66,9 +67,7 @@
       grid-template-columns: 1.15fr .85fr;
       gap:20px;
     }
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-    }
+    @media (max-width: 900px){ .hero{grid-template-columns:1fr} }
     h1{margin:0 0 10px; font-size:42px; line-height:1.08}
     .lead{margin:0 0 10px; font-size:16px; color:var(--muted); line-height:1.55}
     .lead2{margin:0 0 18px; font-size:14px; color:var(--muted); line-height:1.6}
@@ -99,8 +98,8 @@
       border-color:var(--brand);
       color:#fff;
     }
-    .btn:hover{text-decoration:none}
     .btn.primary:hover{opacity:.92}
+
     .panel{
       border:1px solid var(--line);
       background:#fff;
@@ -114,8 +113,10 @@
     .kv .k{color:var(--muted); font-weight:700; font-size:13px}
     .kv .v{font-weight:800; font-size:13px}
     .divider{height:1px; background:var(--line); margin:18px 0}
+
     h2{font-size:20px; margin:26px 0 10px}
     p{margin:0 0 10px; color:var(--muted); line-height:1.6}
+
     .grid{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
@@ -123,6 +124,7 @@
       margin-top:12px;
     }
     @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
+
     .grid2{
       display:grid;
       grid-template-columns: 1.2fr .8fr;
@@ -130,6 +132,7 @@
       margin-top:12px;
     }
     @media (max-width: 900px){ .grid2{grid-template-columns:1fr} }
+
     .card{
       border:1px solid var(--line);
       background:#fff;
@@ -140,6 +143,7 @@
     .card h3{margin:0 0 8px; font-size:16px}
     .card ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
     .card li{margin:6px 0}
+
     .callout{
       margin-top:16px;
       border:1px dashed rgba(139,147,140,.55);
@@ -149,6 +153,7 @@
     }
     .small{font-size:12px; color:var(--muted)}
     footer{margin-top:40px; color:var(--muted); font-size:12px}
+
     .tag{
       display:inline-block; margin-left:8px; font-size:12px;
       padding:5px 10px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--muted);
@@ -164,6 +169,8 @@
       color:var(--muted);
       font-weight:700;
     }
+
+    /* FAQ */
     .faq{margin-top:10px; display:grid; gap:10px;}
     details{
       border:1px solid var(--line);
@@ -172,7 +179,7 @@
       padding:12px 14px;
       box-shadow:0 10px 30px rgba(2,6,23,.03);
     }
-    summary{cursor:pointer; font-weight:800; color:var(--ink); font-size:14px;}
+    summary{cursor:pointer; font-weight:900; color:var(--ink); font-size:14px;}
     details p{margin-top:8px}
 
     /* --- Slide-style sections (deck-like) --- */
@@ -211,7 +218,7 @@
       margin:0;
       font-size: 12px;
       color: var(--muted);
-      font-weight: 800;
+      font-weight: 850;
     }
     .slide.dark .slideSub{color: rgba(226,232,240,.85)}
     .badgeLine{
@@ -274,6 +281,7 @@
       font-size: 12px;
       color: var(--muted);
       line-height: 1.45;
+      font-weight: 700;
     }
     .slide.dark .kpiHint{color: rgba(226,232,240,.88)}
 
@@ -329,33 +337,11 @@
       border-radius: 18px;
       padding: 16px;
     }
-    .revHdr{
-      display:flex; justify-content:space-between; gap:10px; align-items:baseline;
-    }
-    .revStage{
-      font-weight: 950;
-      font-size: 14px;
-      letter-spacing: .3px;
-      color: var(--ink);
-    }
-    .revTime{
-      font-weight: 900;
-      font-size: 12px;
-      color: var(--muted);
-    }
-    .revVal{
-      margin-top: 10px;
-      font-size: 26px;
-      font-weight: 950;
-      color: var(--ink);
-    }
-    .revMeta{
-      margin-top: 8px;
-      font-size: 12px;
-      color: var(--muted);
-      line-height: 1.55;
-      font-weight: 700;
-    }
+    .revHdr{display:flex; justify-content:space-between; gap:10px; align-items:baseline;}
+    .revStage{font-weight: 950; font-size: 14px; letter-spacing: .3px; color: var(--ink);}
+    .revTime{font-weight: 900; font-size: 12px; color: var(--muted);}
+    .revVal{margin-top: 10px; font-size: 26px; font-weight: 950; color: var(--ink);}
+    .revMeta{margin-top: 8px; font-size: 12px; color: var(--muted); line-height: 1.55; font-weight: 700;}
 
     /* Traction like slide 8 */
     .trkGrid{
@@ -365,26 +351,9 @@
       margin-top: 10px;
     }
     @media (max-width:900px){ .trkGrid{grid-template-columns:1fr} }
-    .trk{
-      border:1px solid var(--line);
-      background: #fff;
-      border-radius: 18px;
-      padding: 16px;
-    }
-    .trkNum{
-      font-size: 36px;
-      font-weight: 950;
-      color: var(--ink);
-      line-height: 1.05;
-    }
-    .trkLbl{
-      margin-top: 6px;
-      font-size: 12px;
-      font-weight: 900;
-      color: var(--muted);
-      letter-spacing: .2px;
-      line-height: 1.35;
-    }
+    .trk{border:1px solid var(--line); background: #fff; border-radius: 18px; padding: 16px;}
+    .trkNum{font-size: 36px; font-weight: 950; color: var(--ink); line-height: 1.05;}
+    .trkLbl{margin-top: 6px; font-size: 12px; font-weight: 900; color: var(--muted); letter-spacing: .2px; line-height: 1.35;}
     .flowStrip{
       margin-top: 12px;
       border:1px dashed rgba(139,147,140,.55);
@@ -392,18 +361,60 @@
       border-radius: 18px;
       padding: 12px 14px;
     }
-    .flowStrip .t{
-      font-weight: 950;
-      color: var(--ink);
-      font-size: 13px;
-      margin: 0 0 6px;
+    .flowStrip .t{font-weight: 950; color: var(--ink); font-size: 13px; margin: 0 0 6px;}
+    .flowStrip .p{margin:0; font-size: 12px; color: var(--muted); font-weight: 700; line-height: 1.6;}
+
+    /* Competitive landscape table (deck-like) */
+    .tableWrap{
+      margin-top: 10px;
+      border:1px solid var(--line);
+      border-radius: 18px;
+      overflow:hidden;
+      background:#fff;
+      box-shadow: 0 10px 30px rgba(2,6,23,.04);
     }
-    .flowStrip .p{
-      margin:0;
-      font-size: 12px;
+    table{
+      width:100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    thead th{
+      text-align:left;
+      padding:12px 12px;
+      background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 950;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+    tbody td{
+      padding:12px 12px;
+      border-bottom: 1px solid var(--line);
       color: var(--muted);
       font-weight: 700;
-      line-height: 1.6;
+      vertical-align: top;
+    }
+    tbody tr:nth-child(even) td{ background: #fcfdff; }
+    tbody tr:last-child td{ border-bottom:none; }
+    .colFeature{color: var(--ink); font-weight: 950; width: 28%;}
+    .colStrong{color: var(--ink); font-weight: 950;}
+    .yes{color: var(--ink); font-weight: 950;}
+    .no{color: #64748b; font-weight: 900;}
+    .vb{
+      color: var(--ink);
+      font-weight: 950;
+      background: rgba(139,147,140,.10);
+      border-left: 3px solid var(--brand);
+    }
+    .vb td{ color: var(--ink); }
+    .vb td:nth-child(1){ background: rgba(139,147,140,.10); }
+    .vb td{ background: rgba(139,147,140,.10); }
+
+    @media (max-width: 900px){
+      table{font-size:12px}
+      thead th, tbody td{padding:10px}
+      .colFeature{width:auto}
     }
   </style>
 </head>
@@ -498,7 +509,7 @@
       Meanwhile, “digital” substitutes like email read receipts lack defensible chain-of-custody.
     </p>
 
-    <!-- SLIDE-STYLE MARKET OPPORTUNITY (matches PPTX Page 4) -->
+    <!-- SLIDE-STYLE MARKET OPPORTUNITY (matches deck) -->
     <section class="slide dark" aria-label="Market Opportunity">
       <div class="slideHeader">
         <div>
@@ -521,7 +532,7 @@
         <div class="kpiCard">
           <div class="kpiVal">$31–48B</div>
           <div class="kpiLbl">Serviceable “proof-required” market (SAM)</div>
-          <div class="kpiHint">Certified/compliance document delivery + soft-cost burden (directional framing).</div>
+          <div class="kpiHint">Certified/document proof workflows + soft-cost burden (directional framing).</div>
         </div>
       </div>
 
@@ -551,9 +562,7 @@
     <div class="grid" aria-label="Core sections">
       <div class="card">
         <h3>Solution</h3>
-        <p>
-          Certified digital delivery with traceable lifecycle events, auditable logs, and evidence-oriented documentation patterns.
-        </p>
+        <p>Certified digital delivery with traceable lifecycle events, auditable logs, and evidence-oriented documentation patterns.</p>
         <ul>
           <li>Unique tracking per delivery (UUID)</li>
           <li>Evidence-oriented certificate output + event timeline posture</li>
@@ -563,9 +572,7 @@
 
       <div class="card">
         <h3>Why it’s defensible</h3>
-        <p>
-          Auditability and access-control discipline are engineered into core workflows—not bolted on after the fact.
-        </p>
+        <p>Auditability and access-control discipline are engineered into core workflows—not bolted on after the fact.</p>
         <ul>
           <li>Defense-in-depth mindset (authn/authz/session controls)</li>
           <li>Event integrity as a product requirement</li>
@@ -575,9 +582,7 @@
 
       <div class="card">
         <h3>Who it’s for</h3>
-        <p>
-          Organizations and individuals who send communications that must stand up to scrutiny.
-        </p>
+        <p>Organizations and individuals who send communications that must stand up to scrutiny.</p>
         <ul>
           <li>B2B: legal, HR, finance, property management</li>
           <li>B2C: institutions sending to individuals</li>
@@ -586,7 +591,99 @@
       </div>
     </div>
 
-    <!-- SLIDE-STYLE REVENUE PROJECTIONS (matches PPTX Page 7) -->
+    <!-- COMPETITIVE LANDSCAPE (matches deck competitive slide) -->
+    <section class="slide" aria-label="Competitive Landscape">
+      <div class="slideHeader">
+        <div>
+          <h2 class="slideTitle" style="margin:0;">Competitive Landscape</h2>
+          <p class="slideSub" style="margin:6px 0 0;">VaultInbox competes on the proof layer: auditability, identity assurance, and evidence packaging.</p>
+        </div>
+        <div class="badgeLine">
+          <span class="badgeChip">USPS Certified</span>
+          <span class="badgeChip">UPS/FedEx Express</span>
+          <span class="badgeChip">Email + receipt</span>
+          <span class="badgeChip">VaultInbox ✓</span>
+        </div>
+      </div>
+
+      <div class="tableWrap" role="region" aria-label="Competitive table" tabindex="0">
+        <table>
+          <thead>
+            <tr>
+              <th class="colFeature">Feature</th>
+              <th>USPS Certified</th>
+              <th>UPS/FedEx Express</th>
+              <th>Email + Receipt</th>
+              <th class="colStrong">VaultInbox ✓</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="colFeature">Delivery speed</td>
+              <td>2–5 days</td>
+              <td>1–2 days</td>
+              <td>Instant</td>
+              <td class="vb">Instant</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Cost per send</td>
+              <td>$8–12</td>
+              <td>$15–35</td>
+              <td>$0</td>
+              <td class="vb">$3–8</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Legal-grade proof</td>
+              <td class="yes">✓ Paper</td>
+              <td class="yes">✓ Paper</td>
+              <td class="no">✗</td>
+              <td class="vb">✓ Digital</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Tamper-evident</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="vb">✓</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Recipient ID assurance</td>
+              <td>Signature</td>
+              <td>Signature</td>
+              <td class="no">✗</td>
+              <td class="vb">WebAuthn/TOTP</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Audit log</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="no">✗</td>
+              <td class="vb">✓ Immutable</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Evidence package</td>
+              <td>Paper card</td>
+              <td>Paper</td>
+              <td class="no">✗</td>
+              <td class="vb">✓ PDF cert</td>
+            </tr>
+            <tr>
+              <td class="colFeature">Theft risk</td>
+              <td>High</td>
+              <td>Medium</td>
+              <td>N/A</td>
+              <td class="vb">Eliminated</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="small" style="margin-top:12px;">
+        Competitive framing aligned to the investor deck positioning and feature comparison. :contentReference[oaicite:3]{index=3}
+      </p>
+    </section>
+
+    <!-- SLIDE-STYLE REVENUE PROJECTIONS -->
     <section class="slide" aria-label="Revenue Projections">
       <div class="slideHeader">
         <div>
@@ -639,11 +736,11 @@
       </div>
 
       <p class="small" style="margin-top:12px;">
-        Note: projections shown are for illustrative planning and diligence discussion; they are not a promise of results.
+        Note: projections shown are for illustrative planning and diligence discussion; they are not a promise of results. :contentReference[oaicite:4]{index=4}
       </p>
     </section>
 
-    <!-- SLIDE-STYLE PRODUCT STATUS (matches PPTX Page 8) -->
+    <!-- SLIDE-STYLE PRODUCT STATUS -->
     <section class="slide" aria-label="Product Status & Traction">
       <div class="slideHeader">
         <div>
@@ -680,6 +777,10 @@
           Stage: MVP / Pilot-Ready • Location: Fargo, ND (Remote-First)
         </p>
       </div>
+
+      <p class="small" style="margin-top:12px;">
+        Metrics and workflow milestones aligned to the investor deck execution summary. :contentReference[oaicite:5]{index=5}
+      </p>
     </section>
 
     <h2>What we’re asking for</h2>
@@ -722,31 +823,106 @@
     <h2>Investor FAQ</h2>
     <div class="faq" aria-label="FAQ">
       <details>
-        <summary>How is this different from USPS/UPS/FedEx?</summary>
+        <summary>What is VaultInbox (in one sentence)?</summary>
         <p>
-          Those carriers excel at logistics, but their proof remains tied to physical handling. VaultInbox targets the proof layer:
-          digital-native chain-of-events posture, controlled access, and evidence-oriented records—without physical failure modes.
+          VaultInbox is certified digital delivery infrastructure for proof-required communications, designed to produce auditable
+          delivery timelines and evidence-oriented records without physical mail failure modes.
         </p>
       </details>
+
+      <details>
+        <summary>How is this different from USPS/UPS/FedEx?</summary>
+        <p>
+          Those carriers are logistics businesses; their “proof” is still attached to physical handling. VaultInbox competes on the proof layer:
+          digital-native event integrity, controlled recipient access, and evidence packaging without missed delivery attempts or theft exposure.
+        </p>
+      </details>
+
+      <details>
+        <summary>How is this different from email or “read receipts”?</summary>
+        <p>
+          Email is optimized for convenience, not evidence. Read receipts are inconsistent and easily disputed. VaultInbox is built around controlled
+          state transitions, auditable event timelines, recipient verification controls, and evidence-oriented certificate outputs.
+        </p>
+      </details>
+
+      <details>
+        <summary>What exactly is the “evidence package”?</summary>
+        <p>
+          A certificate-style PDF output and event timeline posture designed for audit and dispute evaluation (timestamps, tracking ID, key delivery events,
+          and integrity signals). VaultInbox is evidence-oriented by design; admissibility varies by jurisdiction and case context.
+        </p>
+      </details>
+
+      <details>
+        <summary>Do you claim universal court admissibility?</summary>
+        <p>
+          No. VaultInbox’s posture is to improve defensibility and produce records that courts and auditors can evaluate.
+          Admissibility depends on jurisdiction, rules of evidence, and the fact pattern.
+        </p>
+      </details>
+
+      <details>
+        <summary>What’s the initial go-to-market?</summary>
+        <p>
+          Pilot-to-contract in high-proof verticals (property management, finance/A/R, HR compliance, legal ops). Convert pilots into annual commitments,
+          then expand via integrations and API plans.
+        </p>
+      </details>
+
+      <details>
+        <summary>What is the business model?</summary>
+        <p>
+          Usage-based (pay-per-delivery) with add-ons tied to compliance value: retention, higher assurance delivery controls, and certificate copies.
+          Enterprise packaging and volume commitments are introduced after pilot validation.
+        </p>
+      </details>
+
+      <details>
+        <summary>What is the key moat?</summary>
+        <p>
+          Architectural moat: evidence-first workflow design, tamper-evident audit posture, and strong recipient assurance (Passkey-first with TOTP support).
+          Physical carriers can’t “patch” their way into eliminating physical attack surfaces.
+        </p>
+      </details>
+
       <details>
         <summary>How do you handle security disclosure?</summary>
         <p>
-          Public pages describe principles and control categories. Security-sensitive implementation and evidentiary design details
-          are shared selectively during diligence and partnership discussions.
+          Public pages describe principles and control categories. Security-sensitive implementation details, threat modeling, and testing artifacts
+          are shared selectively during diligence under appropriate confidentiality.
         </p>
       </details>
+
       <details>
-        <summary>What is the initial revenue model?</summary>
+        <summary>What are the biggest risks?</summary>
         <p>
-          Usage-based (pay-per-delivery), with optional add-ons aligned to compliance value (retention, certificate copies,
-          and higher-assurance delivery controls).
+          Primary risks include jurisdictional variance in evidentiary acceptance, security incident risk, and adoption friction from paper workflows.
+          Mitigations include conservative claims, pilot selection, secure SDLC, staged rollout, and integration-driven adoption.
         </p>
       </details>
+
       <details>
         <summary>What does “audit-grade” mean here?</summary>
         <p>
-          Workflows are designed for traceability and review: controlled state transitions, event integrity posture, defensible records,
-          and evidence-oriented certificate output for audit and dispute contexts.
+          It means the product is engineered for traceability and review: controlled state transitions, defensible event timelines, access-control discipline,
+          and evidence-oriented records suitable for audit and dispute contexts.
+        </p>
+      </details>
+
+      <details>
+        <summary>What does diligence include?</summary>
+        <p>
+          Architecture overview, control categories, demo walkthrough, roadmap assumptions, and selectively shared security documentation and implementation notes
+          appropriate for diligence review.
+        </p>
+      </details>
+
+      <details>
+        <summary>What’s the best way to engage?</summary>
+        <p>
+          Email <strong><a href="mailto:investors@vaultinbox.cloud?subject=VaultInbox%20Investor%20Intro%20Request">investors@vaultinbox.cloud</a></strong>
+          for an intro request, or use the contact page to request diligence materials.
         </p>
       </details>
     </div>

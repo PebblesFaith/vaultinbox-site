@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Investors | VaultInbox.cloud</title>
-  <meta name="description" content="VaultInbox.cloud — audit-grade digital certified delivery for high-trust communications. Investor overview and diligence request." />
+  <meta name="description" content="VaultInbox.cloud — audit-grade certified digital delivery for proof-required communications across USPS/UPS/FedEx-style workflows. Investor overview and diligence request." />
   <style>
     :root{
       --brand:#8b938c;
@@ -17,6 +17,11 @@
       --radius:16px;
       --shadow:0 6px 24px rgba(2,6,23,.06);
       --max:1100px;
+
+      --dark:#1f2937;
+      --dark2:#0b1220;
+      --brandSoft: rgba(139,147,140,.12);
+      --brandSoft2: rgba(139,147,140,.20);
     }
     *{box-sizing:border-box}
     body{
@@ -179,6 +184,66 @@
       font-size:14px;
     }
     details p{margin-top:8px}
+
+    /* --- Visuals (Charts) --- */
+    .charts{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .charts{grid-template-columns:1fr} }
+
+    .chart{
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow:var(--shadow);
+    }
+    .chart h3{margin:0 0 6px; font-size:16px}
+    .chart .note{margin:0 0 10px; font-size:12px; color:var(--muted)}
+    .barRow{display:grid; gap:10px; margin-top:10px}
+    .barItem{display:grid; gap:6px}
+    .barTop{display:flex; justify-content:space-between; gap:10px; font-size:12px; color:var(--muted); font-weight:800}
+    .barTrack{
+      width:100%;
+      height:12px;
+      background:var(--soft);
+      border:1px solid var(--line);
+      border-radius:999px;
+      overflow:hidden;
+    }
+    .barFill{
+      height:100%;
+      background:linear-gradient(90deg, var(--brand) 0%, rgba(139,147,140,.55) 100%);
+      border-radius:999px;
+    }
+
+    .kpiRow{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+      margin-top:12px;
+    }
+    @media (max-width: 900px){ .kpiRow{grid-template-columns:1fr} }
+    .kpi{
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+      border-radius:14px;
+      padding:14px;
+    }
+    .kpi .v{font-size:26px; font-weight:900; letter-spacing:.2px; color:var(--ink)}
+    .kpi .k{margin-top:4px; font-size:12px; color:var(--muted); font-weight:800}
+    .kpi .sub{margin-top:6px; font-size:12px; color:var(--muted); line-height:1.5}
+
+    .mutedBox{
+      border:1px solid var(--line);
+      background:var(--soft);
+      border-radius:14px;
+      padding:12px 14px;
+      margin-top:10px;
+    }
   </style>
 </head>
 
@@ -203,15 +268,15 @@
 
     <section class="hero" aria-label="Investor Overview">
       <div>
-        <h1>Audit-grade digital certified delivery for high-trust communications.</h1>
+        <h1>Certified digital delivery for proof-required communications.</h1>
         <p class="lead">
-          VaultInbox.cloud is being built to replace legacy certified mail workflows with secure,
-          evidence-oriented digital delivery—designed for legal notices, compliance correspondence,
-          and dispute-ready documentation.
+          VaultInbox.cloud is being built to modernize certified delivery workflows historically handled through
+          <strong>USPS Certified Mail</strong> and carrier “document express” patterns (UPS/FedEx). It replaces physical
+          proof-of-delivery with a cloud-native workflow designed for audit review, dispute resolution, and durable retention.
         </p>
         <p class="lead2">
-          Public pages describe architectural intent and control categories. Security-sensitive implementation details and
-          evidentiary specifics are shared selectively for diligence.
+          Public pages describe architectural intent and control categories. Security-sensitive implementation details and evidentiary
+          design specifics are shared selectively for diligence under appropriate confidentiality.
         </p>
 
         <div class="ctaRow">
@@ -222,11 +287,18 @@
         </div>
 
         <div class="chips" aria-label="Key attributes">
-          <span class="chip">Immutable audit trails</span>
-          <span class="chip">Evidence-grade certificates</span>
-          <span class="chip">Defense-in-depth</span>
-          <span class="chip">Least-privilege access</span>
+          <span class="chip">Tamper-evident audit posture</span>
+          <span class="chip">Evidence-oriented certificates</span>
+          <span class="chip">Passkey / TOTP verification</span>
+          <span class="chip">Retention controls</span>
           <span class="chip">Founder-led engineering</span>
+        </div>
+
+        <div class="mutedBox">
+          <p class="small" style="margin:0;">
+            Evidence posture note: VaultInbox is designed to produce records that courts and auditors can evaluate.
+            <strong>Legal admissibility varies</strong> by jurisdiction and case context.
+          </p>
         </div>
       </div>
 
@@ -236,7 +308,7 @@
           <div class="row"><div class="k">Company</div><div class="v">VaultInbox.cloud</div></div>
           <div class="row"><div class="k">Stage</div><div class="v">Pre-seed / Seed diligence</div></div>
           <div class="row"><div class="k">Founder</div><div class="v">Sarai Hannah Ajai</div></div>
-          <div class="row"><div class="k">Focus</div><div class="v">Compliance-first delivery proof</div></div>
+          <div class="row"><div class="k">Focus</div><div class="v">Proof-of-delivery modernization</div></div>
           <div class="row"><div class="k">Model</div><div class="v">Usage-based (pay-per-delivery)</div></div>
         </div>
 
@@ -260,20 +332,21 @@
 
     <h2>What problem we’re solving</h2>
     <p>
-      Certified mail and legacy delivery workflows are costly, slow, and vulnerable to loss and evidentiary gaps.
-      Modern regulated communications require stronger identity assurance, clearer chain-of-custody, and defensible records.
+      Proof-required communications still rely on physical processes: printing, handling, routing, missed delivery attempts,
+      signature friction, and pickup trips. This creates high cost and persistent failure modes (loss, theft, exposure, and disputed receipt).
+      Meanwhile, “digital” substitutes like email read receipts lack defensible chain-of-custody.
     </p>
 
     <div class="grid" aria-label="Core sections">
       <div class="card">
         <h3>Solution</h3>
         <p>
-          Digital certified delivery with traceable delivery events, auditable logs, and evidence-oriented documentation patterns.
+          Certified digital delivery with traceable lifecycle events, auditable logs, and evidence-oriented documentation patterns.
         </p>
         <ul>
-          <li>Evidence-oriented certificate generation</li>
-          <li>Verifiable delivery event capture</li>
-          <li>Structured audit trail and retention posture</li>
+          <li>Unique tracking per delivery (UUID)</li>
+          <li>Evidence-oriented certificate output + event timeline posture</li>
+          <li>Retention controls aligned to compliance needs</li>
         </ul>
       </div>
 
@@ -283,9 +356,9 @@
           Auditability and access-control discipline are engineered into core workflows—not bolted on after the fact.
         </p>
         <ul>
-          <li>Control-category aligned design (least privilege, defense in depth)</li>
-          <li>Event integrity and traceability as product requirements</li>
-          <li>Evidence outputs designed for review and verification</li>
+          <li>Defense-in-depth mindset (authn/authz/session controls)</li>
+          <li>Event integrity as a product requirement</li>
+          <li>Selective disclosure for security-sensitive details</li>
         </ul>
       </div>
 
@@ -295,37 +368,92 @@
           Organizations and individuals who send communications that must stand up to scrutiny.
         </p>
         <ul>
-          <li>Legal notices and formal correspondence</li>
-          <li>Compliance communications and policy delivery</li>
-          <li>Dispute documentation and recordkeeping</li>
+          <li>B2B: legal, HR, finance, property management</li>
+          <li>B2C: institutions sending to individuals</li>
+          <li>C2C: peer-to-peer proof delivery</li>
         </ul>
+      </div>
+    </div>
+
+    <h2>Market framing (visual)</h2>
+    <p>
+      VaultInbox does not compete on parcel logistics. It competes on the <strong>proof layer</strong>—where customers pay for verifiable delivery,
+      retention, and dispute defensibility across USPS/UPS/FedEx-style document workflows.
+    </p>
+
+    <div class="charts" aria-label="Market charts">
+      <div class="chart">
+        <h3>Legacy ecosystem context (illustrative)</h3>
+        <p class="note">Shows relative scale of the physical delivery ecosystem. Values are directional for framing.</p>
+        <div class="barRow">
+          <div class="barItem">
+            <div class="barTop"><span>USPS</span><span>~$80.5B</span></div>
+            <div class="barTrack"><div class="barFill" style="width:91%"></div></div>
+          </div>
+          <div class="barItem">
+            <div class="barTop"><span>UPS</span><span>~$88.7B</span></div>
+            <div class="barTrack"><div class="barFill" style="width:100%"></div></div>
+          </div>
+          <div class="barItem">
+            <div class="barTop"><span>FedEx</span><span>~$87.9B</span></div>
+            <div class="barTrack"><div class="barFill" style="width:99%"></div></div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:10px;">
+          Interpretation: a massive physical ecosystem under volume pressure and pricing expansion—creating space for digital proof modernization.
+        </p>
+      </div>
+
+      <div class="chart">
+        <h3>Where VaultInbox plays (illustrative)</h3>
+        <p class="note">Proof-required spend: certified/compliance delivery + soft costs (labor, reprints, disputes).</p>
+        <div class="kpiRow" aria-label="Proof-layer KPIs">
+          <div class="kpi">
+            <div class="v">$31–48B</div>
+            <div class="k">Economic “proof layer”</div>
+            <div class="sub">Certified + document proof workflows + soft costs (directional).</div>
+          </div>
+          <div class="kpi">
+            <div class="v">3</div>
+            <div class="k">Segments</div>
+            <div class="sub">B2B (wedge), B2C (institutions), C2C (peer-to-peer).</div>
+          </div>
+          <div class="kpi">
+            <div class="v">Pilot</div>
+            <div class="k">Stage</div>
+            <div class="sub">Hardening + design partners; controlled rollout posture.</div>
+          </div>
+        </div>
+        <p class="small" style="margin-top:10px;">
+          Note: figures are used for investor framing. Source citations and updated market baselines are provided in diligence materials.
+        </p>
       </div>
     </div>
 
     <h2>Evidence posture (what can be proven)</h2>
     <div class="grid" aria-label="Evidence posture">
       <div class="card">
-        <h3>Delivery events</h3>
+        <h3>Delivery lifecycle events</h3>
         <ul>
-          <li>When an item was prepared and sent</li>
-          <li>Recipient access actions (where appropriate)</li>
-          <li>Timestamped event trail for review</li>
+          <li>When an item was prepared and finalized</li>
+          <li>Timestamped event trail designed for review</li>
+          <li>Consistent state transitions for audit clarity</li>
         </ul>
       </div>
       <div class="card">
-        <h3>Integrity</h3>
+        <h3>Integrity posture</h3>
         <ul>
           <li>Audit trail designed to be reviewable</li>
           <li>Evidence-oriented certificate outputs</li>
-          <li>Change awareness and accountability</li>
+          <li>Change awareness and accountability posture</li>
         </ul>
       </div>
       <div class="card">
         <h3>Access control</h3>
         <ul>
-          <li>Least-privilege authorization mindset</li>
-          <li>Defense-in-depth security controls</li>
-          <li>Selective disclosure for sensitive details</li>
+          <li>Least-privilege mindset</li>
+          <li>Defense-in-depth controls</li>
+          <li>Passkey-first verification + TOTP support</li>
         </ul>
       </div>
     </div>
@@ -340,7 +468,7 @@
         </p>
         <ul>
           <li>Warm introductions to aligned angels and seed funds</li>
-          <li>Feedback on go-to-market for regulated and high-trust workflows</li>
+          <li>Feedback on go-to-market for proof-required workflows</li>
           <li>Banking / payment readiness and operational scaling guidance</li>
         </ul>
         <div class="ctaRow" style="margin-top:12px;">
@@ -372,8 +500,15 @@
       <details>
         <summary>How is this different from email?</summary>
         <p>
-          VaultInbox is designed around auditable delivery events and evidence-oriented documentation for high-trust communications,
+          VaultInbox is designed around auditable lifecycle events and evidence-oriented documentation for proof-required communications,
           not general-purpose messaging.
+        </p>
+      </details>
+      <details>
+        <summary>How is this different from USPS/UPS/FedEx?</summary>
+        <p>
+          Those carriers excel at logistics, but their “proof” remains tied to physical handling. VaultInbox targets the proof layer:
+          digital-native chain-of-events posture, controlled access, and evidence-oriented records—without physical failure modes.
         </p>
       </details>
       <details>
@@ -386,14 +521,15 @@
       <details>
         <summary>What is the initial revenue model?</summary>
         <p>
-          Usage-based (pay-per-delivery) with optional add-ons for certificate copies and enterprise features as the platform matures.
+          Usage-based (pay-per-delivery), with optional add-ons aligned to compliance value (retention, additional certificate copies,
+          and higher-assurance delivery controls).
         </p>
       </details>
       <details>
         <summary>What does “audit-grade” mean here?</summary>
         <p>
-          It means workflows are designed for traceability and review: event integrity, defensible records, and documentation patterns
-          suitable for audit and evidentiary contexts.
+          Workflows are designed for traceability and review: controlled state transitions, event integrity posture, defensible records,
+          and evidence-oriented certificate output for audit and dispute contexts.
         </p>
       </details>
       <details>
@@ -408,8 +544,8 @@
     <div class="callout" aria-label="Diligence request">
       <h2 style="margin:0 0 8px;">Diligence materials (available on request)</h2>
       <p style="margin:0 0 10px;">
-        Architecture overview, control categories, roadmap assumptions, demo walkthroughs, and implementation notes
-        appropriate for diligence can be shared upon request.
+        Architecture overview, control categories, roadmap assumptions, demo walkthroughs, and implementation notes appropriate for diligence
+        can be shared upon request. Market baselines and citations can be provided in diligence packets.
       </p>
       <div class="ctaRow" style="margin-top:12px;">
         <a class="btn primary" href="./contact.html">Request diligence materials</a>

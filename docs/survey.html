@@ -1,1 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research Survey | VaultInbox.cloud</title>
+  <meta name="description" content="Independent research survey on mail delivery reliability and dispute resolution challenges. Not affiliated with USPS." />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
 
+  <div class="nav">
+    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:14px;">
+      <div class="brand">
+        <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--sage)"></span>
+        <span>VaultInbox.cloud</span>
+        <span class="badge">In development</span>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="security.html">Security</a>
+        <a href="status.html">Status</a>
+        <a class="active" href="survey.html">Survey</a>
+        <a href="contact.html">Contact</a>
+        <a href="investors.html">Investors</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="hero">
+      <div>
+        <h1 class="h1">National Mail Delivery Reliability Study</h1>
+
+        <p class="sub">
+          VaultInbox.cloud is conducting an independent research study on mail delivery reliability and dispute resolution challenges.
+          This survey is not affiliated with the United States Postal Service (USPS).
+        </p>
+
+        <div class="card" style="margin-top:12px;">
+          <h3 style="margin:0 0 8px 0;">Privacy + scope</h3>
+          <p style="margin:0;color:var(--muted);line-height:1.7;">
+            Please do not submit addresses, tracking numbers, names of individuals, or other sensitive personal information.
+            Responses are analyzed in aggregate to understand failure modes and willingness-to-pay for tamper-evident digital proof.
+          </p>
+          <p class="small" style="margin-top:10px;">
+            Each response is tagged with a unique Submission ID (UUID) for research integrity.
+          </p>
+        </div>
+
+        <div class="cta" style="margin-top:16px;">
+          <button class="btn primary" id="startBtn" type="button">Start survey (auto Submission ID)</button>
+          <button class="btn" id="copyBtn" type="button">Copy Submission ID</button>
+          <a class="btn" href="index.html">Back to home</a>
+        </div>
+
+        <div class="card" style="margin-top:12px;">
+          <h3 style="margin:0 0 8px 0;">Submission ID</h3>
+          <p class="small" style="margin:0 0 10px 0;">
+            Your Submission ID is generated locally in your browser. Keep it for your records if desired.
+          </p>
+          <div class="kbd" id="uuidBox" style="display:inline-block; padding:10px 12px;">Not generated yet</div>
+        </div>
+
+        <div class="hr"></div>
+
+        <div class="section">
+          <h2>Why this matters</h2>
+          <p>
+            Proof-required communications often fail due to physical delivery friction and disputed receipt.
+            This survey helps quantify reliability gaps and validate demand for certified digital delivery proof.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="card">
+          <h3>Research note</h3>
+          <p class="small" style="line-height:1.7;">
+            This is a pre-seed validation study. Results may be summarized publicly in aggregate form
+            (e.g., percent reporting missing mail, mismatch rates, and willingness-to-pay bands).
+          </p>
+          <div class="hr"></div>
+          <p class="small">
+            Do not include personal identifying details in your responses.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hr"></div>
+
+    <div class="footer">
+      © <span id="y"></span> VaultInbox.cloud • Research Survey • <span class="kbd">v1</span>
+    </div>
+  </div>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+
+  // Google Form base URL (prefill with Submission ID)
+  // IMPORTANT: entry.1187590725 is your Submission ID field.
+  const GOOGLE_FORM_BASE =
+    'https://docs.google.com/forms/d/e/1FAIpQLSd97jzphaV822ZdytRvNjdlS4GHE8kMOY4V0E0PUNx7kxsBMA/viewform?usp=pp_url&entry.1187590725=';
+
+  let currentUuid = '';
+
+  function makeUuid() {
+    // Modern browsers (Chrome/Safari) support this.
+    if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+
+    // UUIDv4 fallback
+    const buf = new Uint8Array(16);
+    crypto.getRandomValues(buf);
+    buf[6] = (buf[6] & 0x0f) | 0x40;
+    buf[8] = (buf[8] & 0x3f) | 0x80;
+    const hex = [...buf].map(b => b.toString(16).padStart(2, '0')).join('');
+    return `${hex.slice(0,8)}-${hex.slice(8,12)}-${hex.slice(12,16)}-${hex.slice(16,20)}-${hex.slice(20)}`;
+  }
+
+  function ensureUuid() {
+    if (!currentUuid) currentUuid = makeUuid();
+    document.getElementById('uuidBox').textContent = currentUuid;
+    return currentUuid;
+  }
+
+  async function copyToClipboard(text) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+      return true;
+    }
+  }
+
+  document.getElementById('startBtn').addEventListener('click', () => {
+    const uuid = ensureUuid();
+    const url = GOOGLE_FORM_BASE + encodeURIComponent(uuid);
+    window.location.href = url;
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', async () => {
+    const uuid = ensureUuid();
+    await copyToClipboard(uuid);
+    alert('Submission ID copied.');
+  });
+</script>
+
+</body>
+</html>

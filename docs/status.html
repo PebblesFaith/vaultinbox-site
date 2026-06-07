@@ -8,98 +8,68 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-
-  <div class="nav">
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:14px;">
-      <div class="brand">
-        <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--sage)"></span>
-        <span>VaultInbox.cloud</span>
-        <span class="badge">Status</span>
-      </div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="security.html">Security</a>
-        <a href="status.html">Status</a>
-         <a href="survey.html">Survey</a>
-        <a href="contact.html">Contact</a>
-        <a href="investors.html">Investors</a>
-        <a href="about.html">About</a>
-      </div>
-    </div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="VaultInbox.cloud home">
+      <img src="assets/vaultinbox-mark.svg" alt="" aria-hidden="true" />
+      <span>VaultInbox.cloud</span>
+      <small>Status</small>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="" href="index.html">Home</a>
+      <a class="" href="security.html">Security</a>
+      <a class="active" href="status.html">Status</a>
+      <a class="" href="survey.html">Survey</a>
+      <a class="" href="contact.html">Contact</a>
+      <a class="" href="investors.html">Investors</a>
+      <a class="" href="about.html">About</a>
+    </nav>
   </div>
+</header>
+<main id="main">
 
-  <div class="wrap">
-    <h1 class="h1" style="font-size:34px">Development status</h1>
-    <p class="sub">
-      A concise view of current execution. This page is intended to communicate delivery maturity,
-      engineering focus, and readiness for pilot engagement—without hype.
-    </p>
-
-    <div class="grid">
-      <div class="card">
-        <h3>Now</h3>
-        <p>
-          Core certified digital delivery workflows are implemented and validated end-to-end:
-          draft creation, tracking ID generation, receipt/price preview, payment-confirmed finalization,
-          delivery state transitions, and evidence-oriented certificate output. The system is designed
-          to replace physical proof-of-delivery workflows commonly handled via USPS Certified Mail
-          and carrier document services.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Next</h3>
-        <p>
-          Reliability hardening and negative-case validation: authentication edge cases,
-          replay resistance, rate limiting, session controls, and operational monitoring.
-          This phase focuses on strengthening the audit narrative under stress conditions
-          and preparing the platform for limited-scope pilots with real compliance senders.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Later</h3>
-        <p>
-          Expansion toward enterprise and institutional usage: bulk sending patterns,
-          API-based integrations, policy-driven access controls, and formal compliance readiness
-          (e.g., SOC 2–aligned control mapping once operational scale justifies certification).
-        </p>
-      </div>
-    </div>
-
-    <div class="hr"></div>
-
-    <div class="section">
-      <h2>Execution posture</h2>
-      <p>
-        VaultInbox is being developed as evidence infrastructure—not a general messaging tool.
-        Product decisions prioritize controlled state transitions, defensible event timelines,
-        and clarity under audit or dispute review. Market expansion across USPS-, UPS-, and
-        FedEx-style proof workflows is being addressed deliberately, with reliability and
-        integrity ahead of growth acceleration.
+  <section class="hero compact-hero">
+    <div class="container">
+      <div class="eyebrow">Execution status</div>
+      <h1 class="page-title">Development status</h1>
+      <p class="lead">
+        A concise view of current execution. This page is intended to communicate delivery maturity,
+        engineering focus, and readiness for pilot engagement—without hype.
       </p>
     </div>
+  </section>
 
-    <div class="section">
-      <h2>Diligence materials</h2>
-      <p>
-        Available on request for qualified partners and investors: architecture overview,
-        security and control categories, execution roadmap assumptions, and guided product
-        demonstrations appropriate for diligence review.
-      </p>
+  <section class="section tight">
+    <div class="container grid three">
+      <article class="card"><h3>Now</h3><p>Core certified digital delivery workflows are implemented and validated end-to-end: draft creation, tracking ID generation, receipt/price preview, payment-confirmed finalization, delivery state transitions, and evidence-oriented certificate output. The system is designed to replace physical proof-of-delivery workflows commonly handled via USPS Certified Mail and carrier document services.</p></article>
+      <article class="card"><h3>Next</h3><p>Reliability hardening and negative-case validation: authentication edge cases, replay resistance, rate limiting, session controls, and operational monitoring. This phase focuses on strengthening the audit narrative under stress conditions and preparing the platform for limited-scope pilots with real compliance senders.</p></article>
+      <article class="card"><h3>Later</h3><p>Expansion toward enterprise and institutional usage: bulk sending patterns, API-based integrations, policy-driven access controls, and formal compliance readiness (e.g., SOC 2–aligned control mapping once operational scale justifies certification).</p></article>
     </div>
+  </section>
 
-    <div class="footer">
-      <a class="btn primary" href="investors.html">Investor overview</a>
-      <a class="btn" href="contact.html" style="margin-left:10px;">Request information</a>
-      <span class="small" style="margin-left:10px;">
-        Preferred:
-        <a href="mailto:investors@vaultinbox.cloud?subject=VaultInbox%20Status%20Inquiry">
-          investors@vaultinbox.cloud
-        </a>
-      </span>
+  <section class="section">
+    <div class="container grid two">
+      <div class="card">
+        <h2>Execution posture</h2>
+        <p>VaultInbox is being developed as evidence infrastructure—not a general messaging tool. Product decisions prioritize controlled state transitions, defensible event timelines, and clarity under audit or dispute review. Market expansion across USPS-, UPS-, and FedEx-style proof workflows is being addressed deliberately, with reliability and integrity ahead of growth acceleration.</p>
+      </div>
+      <div class="callout">
+        <h2>Diligence materials</h2>
+        <p>Available on request for qualified partners and investors: architecture overview, security and control categories, execution roadmap assumptions, and guided product demonstrations appropriate for diligence review.</p>
+        <div class="actions"><a class="btn primary" href="investors.html">Investor overview</a><a class="btn" href="contact.html">Request information</a></div>
+        <p class="small" style="margin-top:10px;">Preferred: <a href="mailto:investors@vaultinbox.cloud?subject=VaultInbox%20Status%20Inquiry"><strong>investors@vaultinbox.cloud</strong></a></p>
+      </div>
     </div>
+  </section>
+
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="y"></span> VaultInbox.cloud • Development status</span>
+    <span><a href="security.html">Security</a> · <a href="investors.html">Investors</a> · <a href="contact.html">Contact</a></span>
   </div>
-
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

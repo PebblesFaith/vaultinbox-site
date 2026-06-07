@@ -8,41 +8,41 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-
-  <div class="nav">
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:14px;">
-      <div class="brand">
-        <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--sage)"></span>
-        <span>VaultInbox.cloud</span>
-        <span class="badge">In development</span>
-      </div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="security.html">Security</a>
-        <a href="status.html">Status</a>
-        <a href="survey.html">Survey</a>
-        <a href="contact.html">Contact</a>
-        <a href="investors.html">Investors</a>
-        <a href="about.html">About</a>
-      </div>
-    </div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="VaultInbox.cloud home">
+      <img src="assets/vaultinbox-mark.svg" alt="" aria-hidden="true" />
+      <span>VaultInbox.cloud</span>
+      <small>In development</small>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="active" href="index.html">Home</a>
+      <a class="" href="security.html">Security</a>
+      <a class="" href="status.html">Status</a>
+      <a class="" href="survey.html">Survey</a>
+      <a class="" href="contact.html">Contact</a>
+      <a class="" href="investors.html">Investors</a>
+      <a class="" href="about.html">About</a>
+    </nav>
   </div>
+</header>
+<main id="main">
 
-  <div class="wrap">
-    <div class="hero">
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <h1 class="h1">Audit-grade certified digital delivery<br/>for proof-required communications.</h1>
-
-        <p class="sub">
+        <div class="eyebrow">Certified digital delivery infrastructure</div>
+        <h1>Audit-grade certified digital delivery for proof-required communications.</h1>
+        <p class="lead">
           VaultInbox.cloud is being built as a modern alternative to physical proof-of-delivery workflows commonly handled through
           USPS Certified Mail and carrier “document express” services (UPS/FedEx). It delivers secure, compliance-first correspondence
           with tamper-evident event logging and evidence-oriented output—designed for high-trust and regulated environments.
         </p>
 
-        <!-- Consumer-facing message (B2C/C2C) without diluting compliance posture -->
-        <div class="card" style="margin-top:12px;">
-          <h3 style="margin:0 0 8px 0;">For everyday recipients, too</h3>
-          <p style="margin:0;color:var(--muted);line-height:1.7;">
+        <div class="card soft-card" style="margin-top:24px;">
+          <h3>For everyday recipients, too</h3>
+          <p>
             Tired of missed delivery slips and post-office trips? If a sender uses VaultInbox, you receive certified correspondence securely and digitally—with a controlled access flow and a reviewable proof record.
           </p>
           <p class="small" style="margin-top:8px;">
@@ -50,169 +50,144 @@
           </p>
         </div>
 
-        <div class="cta">
+        <div class="actions">
           <a class="btn primary" href="contact.html">Contact</a>
-          <a class="btn" href="security.html">Security approach</a>
+          <a class="btn secondary" href="security.html">Security approach</a>
           <a class="btn" href="investors.html">Investor overview</a>
           <a class="btn" href="about.html">About the founder</a>
           <a class="btn" href="survey.html">Take the research survey</a>
         </div>
 
-        <div class="pills">
-          <div class="pill">Tamper-evident audit trails</div>
-          <div class="pill">Evidence-oriented certificates</div>
-          <div class="pill">Passkey/TOTP recipient verification</div>
-          <div class="pill">Retention controls (1–5 years)</div>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="section">
-          <h2>Problem</h2>
-          <p>
-            Proof-required document delivery is still dominated by physical processes: printing, handling, routing, missed delivery attempts,
-            signature friction, and pickup trips. The result is higher cost, slower timelines, and recurring failure modes—
-            loss, theft, exposure, and disputed receipt.
-          </p>
-          <p class="small" style="margin-top:8px;">
-            Carriers excel at logistics. The weakness is the proof mechanism being tied to paper and manual steps.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2>Solution</h2>
-          <p>
-            VaultInbox replaces the physical dependency with a cloud-native certified delivery workflow:
-            unique tracking IDs, controlled recipient access, and an event timeline designed for audit and dispute review.
-          </p>
-          <p class="small" style="margin-top:8px;">
-            Senders get faster, clearer proof; recipients avoid slips and pickup trips—while maintaining a defensible record posture.
-          </p>
-        </div>
-
-        <!-- Market wedge (dark brown panel) -->
-        <div class="section" style="margin-top:18px;">
-          <div class="vi-dark-panel" style="padding:18px;">
-            <h2 style="margin:0 0 10px 0;font-size:20px;">Market wedge</h2>
-            <p style="margin:0;line-height:1.75;">
-              “The U.S. mail ecosystem is a $257B market, but VaultInbox targets the $31–48B slice where people pay specifically for proof.
-              Certified Mail exists because proof is required — VaultInbox delivers stronger proof without the physical failure modes.”
-            </p>
-            <p class="small" style="margin-top:10px;">
-              VaultInbox competes on the proof layer—evidence, access control, retention—not parcel logistics.
-            </p>
-          </div>
-        </div>
-
-        <div class="section">
-          <h2>Three market segments</h2>
-          <p>
-            VaultInbox is designed for proof-required communications across:
-          </p>
-          <div class="grid" style="grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:10px;">
-            <div class="card">
-              <h3>B2B</h3>
-              <p class="small">
-                Compliance and enterprise senders: legal, HR, insurance, finance, property management—where audit trails and dispute defensibility are non-negotiable.
-              </p>
-            </div>
-            <div class="card">
-              <h3>B2C</h3>
-              <p class="small">
-                Institutions sending to individuals: government notices, healthcare, landlords/tenants, collections—reducing disputes and recipient friction.
-              </p>
-            </div>
-            <div class="card">
-              <h3>C2C</h3>
-              <p class="small">
-                Peer-to-peer certified delivery: small-claims documentation, freelance contracts, family legal matters—proof without carrier trips and paper handling.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <div class="section">
-          <h2>Why now</h2>
-          <p>
-            Physical volume trends and rising prices increase the burden of paper-based proof workflows.
-            VaultInbox targets the proof layer—where customers already pay for verifiable delivery—by offering a digital-native alternative
-            with stronger identity assurance and evidence-oriented records.
-          </p>
-        </div>
-
-        <div class="section">
-          <h2>For investors</h2>
-          <p>
-            VaultInbox.cloud is a founder-led build focused on evidence integrity and secure delivery proof.
-            Public pages describe control categories and architectural intent; detailed implementation notes are shared selectively for diligence.
-          </p>
-          <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-            <a class="btn" href="investors.html">View investor page</a>
-            <a class="btn" href="contact.html">Request diligence materials</a>
-          </div>
-          <p class="small" style="margin-top:10px;">
-            Note: VaultInbox is designed to produce records that courts and auditors can evaluate. Legal admissibility varies by jurisdiction and case context.
-          </p>
+        <div class="pill-row">
+          <span class="pill">Tamper-evident audit trails</span>
+          <span class="pill">Evidence-oriented certificates</span>
+          <span class="pill">Passkey/TOTP recipient verification</span>
+          <span class="pill">Retention controls (1–5 years)</span>
         </div>
       </div>
 
+      <aside class="panel" aria-label="VaultInbox status and positioning">
+        <div class="stat-grid">
+          <div class="stat"><b>v1</b><span>Investor and partner diligence foundation</span></div>
+          <div class="stat"><b>Proof</b><span>Evidence-oriented output and event timeline posture</span></div>
+          <div class="stat"><b>B2B+B2C+C2C</b><span>Three proof-required market segments</span></div>
+          <div class="stat"><b>1–5 yrs</b><span>Retention controls</span></div>
+        </div>
+        <div class="dash-list">
+          <div class="dash-item"><span class="dash-icon">01</span><p><strong>Status</strong>Platform in active development. This site is a v1 foundation intended for investor and partner diligence.</p></div>
+          <div class="dash-item"><span class="dash-icon">02</span><p><strong>Founder &amp; Senior Lead Developer</strong>Sarai Hannah Ajai</p></div>
+          <div class="dash-item"><span class="dash-icon">03</span><p><strong>Proof posture</strong>Delivery events, controlled recipient access, and evidence-oriented output.</p></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="container proof-strip" aria-label="VaultInbox proof features">
+      <div class="proof-item"><span></span>Tamper-evident audit trails</div>
+      <div class="proof-item"><span></span>Evidence-oriented certificates</div>
+      <div class="proof-item"><span></span>Passkey/TOTP recipient verification</div>
+      <div class="proof-item"><span></span>Retention controls (1–5 years)</div>
+      <div class="proof-item"><span></span>Controlled access flow</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid two">
       <div>
-        <div class="card">
-          <h3>Status</h3>
-          <p>
-            Platform in active development. This site is a v1 foundation intended for investor and partner diligence.
-          </p>
-          <div class="hr"></div>
-          <p class="small">
-            Founder &amp; Senior Lead Developer: <strong>Sarai Hannah Ajai</strong>
-          </p>
-        </div>
-
-        <div class="grid" style="grid-template-columns:1fr; margin-top:12px;">
-          <div class="card">
-            <h3>What “audit-grade” means</h3>
-            <p>
-              Design decisions prioritize event integrity, traceability, and defensible records—built to support audit and evidentiary review.
-              This includes controlled state transitions, strong recipient verification options, and evidence-oriented output artifacts.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Where VaultInbox competes</h3>
-            <p>
-              VaultInbox does not compete on parcel logistics. It competes on proof-of-delivery workflows—where customers pay for evidence, retention,
-              and dispute defensibility (including USPS Certified Mail and carrier document express patterns).
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Who it’s for</h3>
-            <p>
-              Organizations and individuals delivering high-trust communications: legal notices, HR actions, compliance correspondence,
-              dispute documentation, and formal delivery records.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Founder</h3>
-            <p>
-              Founder-led engineering with a compliance-first mindset.
-              <strong><a href="about.html">Read the founder overview</a></strong>.
-            </p>
-          </div>
-        </div>
+        <div class="section-head"><h2>Problem</h2></div>
+        <p class="copy">
+          Proof-required document delivery is still dominated by physical processes: printing, handling, routing, missed delivery attempts,
+          signature friction, and pickup trips. The result is higher cost, slower timelines, and recurring failure modes—
+          loss, theft, exposure, and disputed receipt.
+        </p>
+        <p class="small" style="margin-top:10px;">
+          Carriers excel at logistics. The weakness is the proof mechanism being tied to paper and manual steps.
+        </p>
+      </div>
+      <div>
+        <div class="section-head"><h2>Solution</h2></div>
+        <p class="copy">
+          VaultInbox replaces the physical dependency with a cloud-native certified delivery workflow:
+          unique tracking IDs, controlled recipient access, and an event timeline designed for audit and dispute review.
+        </p>
+        <p class="small" style="margin-top:10px;">
+          Senders get faster, clearer proof; recipients avoid slips and pickup trips—while maintaining a defensible record posture.
+        </p>
       </div>
     </div>
+  </section>
 
-    <div class="hr"></div>
-
-    <div class="footer">
-      © <span id="y"></span> VaultInbox.cloud • Built with a security-first mindset • <span class="kbd">v1</span>
+  <section class="section">
+    <div class="container dark-panel">
+      <div class="section-head">
+        <h2>Market wedge</h2>
+        <div><span class="tag">Proof layer</span><span class="tag">Evidence</span><span class="tag">Access control</span><span class="tag">Retention</span></div>
+      </div>
+      <div class="quote">
+        “The U.S. mail ecosystem is a $257B market, but VaultInbox targets the $31–48B slice where people pay specifically for proof.
+        Certified Mail exists because proof is required — VaultInbox delivers stronger proof without the physical failure modes.”
+      </div>
+      <p class="small" style="margin-top:14px;">
+        VaultInbox competes on the proof layer—evidence, access control, retention—not parcel logistics.
+      </p>
     </div>
-  </div>
+  </section>
 
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Three market segments</h2>
+        <p>VaultInbox is designed for proof-required communications across:</p>
+      </div>
+      <div class="grid three">
+        <article class="card"><h3>B2B</h3><p>Compliance and enterprise senders: legal, HR, insurance, finance, property management—where audit trails and dispute defensibility are non-negotiable.</p></article>
+        <article class="card"><h3>B2C</h3><p>Institutions sending to individuals: government notices, healthcare, landlords/tenants, collections—reducing disputes and recipient friction.</p></article>
+        <article class="card"><h3>C2C</h3><p>Peer-to-peer certified delivery: small-claims documentation, freelance contracts, family legal matters—proof without carrier trips and paper handling.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid two">
+      <div class="card">
+        <h3>Why now</h3>
+        <p>
+          Physical volume trends and rising prices increase the burden of paper-based proof workflows.
+          VaultInbox targets the proof layer—where customers already pay for verifiable delivery—by offering a digital-native alternative
+          with stronger identity assurance and evidence-oriented records.
+        </p>
+      </div>
+      <div class="card">
+        <h3>For investors</h3>
+        <p>
+          VaultInbox.cloud is a founder-led build focused on evidence integrity and secure delivery proof.
+          Public pages describe control categories and architectural intent; detailed implementation notes are shared selectively for diligence.
+        </p>
+        <div class="actions"><a class="btn primary" href="investors.html">View investor page</a><a class="btn" href="contact.html">Request diligence materials</a></div>
+        <p class="small" style="margin-top:10px;">
+          Note: VaultInbox is designed to produce records that courts and auditors can evaluate. Legal admissibility varies by jurisdiction and case context.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section tight">
+    <div class="container grid four">
+      <article class="card compact"><h3>What “audit-grade” means</h3><p>Design decisions prioritize event integrity, traceability, and defensible records—built to support audit and evidentiary review. This includes controlled state transitions, strong recipient verification options, and evidence-oriented output artifacts.</p></article>
+      <article class="card compact"><h3>Where VaultInbox competes</h3><p>VaultInbox does not compete on parcel logistics. It competes on proof-of-delivery workflows—where customers pay for evidence, retention, and dispute defensibility (including USPS Certified Mail and carrier document express patterns).</p></article>
+      <article class="card compact"><h3>Who it’s for</h3><p>Organizations and individuals delivering high-trust communications: legal notices, HR actions, compliance correspondence, dispute documentation, and formal delivery records.</p></article>
+      <article class="card compact"><h3>Founder</h3><p>Founder-led engineering with a compliance-first mindset. <strong><a href="about.html">Read the founder overview</a></strong>.</p></article>
+    </div>
+  </section>
+
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="y"></span> VaultInbox.cloud • Built with a security-first mindset</span>
+    <span><a href="security.html">Security</a> · <a href="investors.html">Investors</a> · <a href="contact.html">Contact</a></span>
+  </div>
+</footer>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>

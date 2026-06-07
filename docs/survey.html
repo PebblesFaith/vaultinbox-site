@@ -8,93 +8,82 @@
   <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
-
-  <div class="nav">
-    <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:14px;">
-      <div class="brand">
-        <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:var(--sage)"></span>
-        <span>VaultInbox.cloud</span>
-        <span class="badge">In development</span>
-      </div>
-      <div class="links">
-        <a href="index.html">Home</a>
-        <a href="security.html">Security</a>
-        <a href="status.html">Status</a>
-        <a class="active" href="survey.html">Survey</a>
-        <a href="contact.html">Contact</a>
-        <a href="investors.html">Investors</a>
-        <a href="about.html">About</a>
-      </div>
-    </div>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <div class="container navbar">
+    <a class="brand" href="index.html" aria-label="VaultInbox.cloud home">
+      <img src="assets/vaultinbox-mark.svg" alt="" aria-hidden="true" />
+      <span>VaultInbox.cloud</span>
+      <small>In development</small>
+    </a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a class="" href="index.html">Home</a>
+      <a class="" href="security.html">Security</a>
+      <a class="" href="status.html">Status</a>
+      <a class="active" href="survey.html">Survey</a>
+      <a class="" href="contact.html">Contact</a>
+      <a class="" href="investors.html">Investors</a>
+      <a class="" href="about.html">About</a>
+    </nav>
   </div>
+</header>
+<main id="main">
 
-  <div class="wrap">
-    <div class="hero">
+  <section class="hero">
+    <div class="container hero-grid">
       <div>
-        <h1 class="h1">National Mail Delivery Reliability Study</h1>
-
-        <p class="sub">
+        <div class="eyebrow">Independent research study</div>
+        <h1>National Mail Delivery Reliability Study</h1>
+        <p class="lead">
           VaultInbox.cloud is conducting an independent research study on mail delivery reliability and dispute resolution challenges.
           This survey is not affiliated with the United States Postal Service (USPS).
         </p>
 
-        <div class="card" style="margin-top:12px;">
-          <h3 style="margin:0 0 8px 0;">Privacy + scope</h3>
-          <p style="margin:0;color:var(--muted);line-height:1.7;">
-            Please do not submit addresses, tracking numbers, names of individuals, or other sensitive personal information.
-            Responses are analyzed in aggregate to understand failure modes and willingness-to-pay for tamper-evident digital proof.
-          </p>
-          <p class="small" style="margin-top:10px;">
-            Each response is tagged with a unique Submission ID (UUID) for research integrity.
-          </p>
+        <div class="card" style="margin-top:24px;">
+          <h3>Privacy + scope</h3>
+          <p>Please do not submit addresses, tracking numbers, names of individuals, or other sensitive personal information. Responses are analyzed in aggregate to understand failure modes and willingness-to-pay for tamper-evident digital proof.</p>
+          <p class="small" style="margin-top:10px;">Each response is tagged with a unique Submission ID (UUID) for research integrity.</p>
         </div>
 
-        <div class="cta" style="margin-top:16px;">
+        <div class="actions">
           <button class="btn primary" id="startBtn" type="button">Start survey (auto Submission ID)</button>
           <button class="btn" id="copyBtn" type="button">Copy Submission ID</button>
           <a class="btn" href="index.html">Back to home</a>
         </div>
 
-        <div class="card" style="margin-top:12px;">
-          <h3 style="margin:0 0 8px 0;">Submission ID</h3>
-          <p class="small" style="margin:0 0 10px 0;">
-            Your Submission ID is generated locally in your browser. Keep it for your records if desired.
-          </p>
-          <div class="kbd" id="uuidBox" style="display:inline-block; padding:10px 12px;">Not generated yet</div>
-        </div>
-
-        <div class="hr"></div>
-
-        <div class="section">
-          <h2>Why this matters</h2>
-          <p>
-            Proof-required communications often fail due to physical delivery friction and disputed receipt.
-            This survey helps quantify reliability gaps and validate demand for certified digital delivery proof.
-          </p>
+        <div class="card" style="margin-top:24px;">
+          <h3>Submission ID</h3>
+          <p class="small" style="margin:0 0 10px 0;">Your Submission ID is generated locally in your browser. Keep it for your records if desired.</p>
+          <div class="kbd" id="uuidBox">Not generated yet</div>
         </div>
       </div>
 
-      <div>
-        <div class="card">
-          <h3>Research note</h3>
-          <p class="small" style="line-height:1.7;">
-            This is a pre-seed validation study. Results may be summarized publicly in aggregate form
-            (e.g., percent reporting missing mail, mismatch rates, and willingness-to-pay bands).
-          </p>
-          <div class="hr"></div>
-          <p class="small">
-            Do not include personal identifying details in your responses.
-          </p>
-        </div>
-      </div>
+      <aside class="panel">
+        <h3>Research note</h3>
+        <p class="small">
+          This is a pre-seed validation study. Results may be summarized publicly in aggregate form
+          (e.g., percent reporting missing mail, mismatch rates, and willingness-to-pay bands).
+        </p>
+        <div class="divider"></div>
+        <p class="small">Do not include personal identifying details in your responses.</p>
+      </aside>
     </div>
+  </section>
 
-    <div class="hr"></div>
-
-    <div class="footer">
-      © <span id="y"></span> VaultInbox.cloud • Research Survey • <span class="kbd">v1</span>
+  <section class="section tight">
+    <div class="container card">
+      <h2>Why this matters</h2>
+      <p>Proof-required communications often fail due to physical delivery friction and disputed receipt. This survey helps quantify reliability gaps and validate demand for certified digital delivery proof.</p>
     </div>
+  </section>
+
+</main>
+<footer class="footer">
+  <div class="container footer-inner">
+    <span>© <span id="y"></span> VaultInbox.cloud • Research Survey • <span class="kbd">v1</span></span>
+    <span><a href="security.html">Security</a> · <a href="investors.html">Investors</a> · <a href="contact.html">Contact</a></span>
   </div>
+</footer>
 
 <script>
   document.getElementById('y').textContent = new Date().getFullYear();

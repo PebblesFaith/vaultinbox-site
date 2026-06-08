@@ -351,3 +351,22 @@ button.btn{font-family:inherit;cursor:pointer}
     grid-template-columns:1fr;
   }
 }
+
+/* Home page hero right-panel bottom alignment correction */
+@media (min-width: 1041px){
+  .hero .hero-grid{
+    align-items:start;
+  }
+
+  .hero .panel{
+    margin-top:34px;
+  }
+
+  .hero .stat{
+    min-height:96px;
+  }
+
+  .hero .dash-item{
+    min-height:68px;
+  }
+}

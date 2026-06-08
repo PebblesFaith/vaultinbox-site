@@ -1,0 +1,21 @@
+cat > docs/site.webmanifest <<'EOF'
+{
+  "name": "VaultInbox.Cloud",
+  "short_name": "VaultInbox",
+  "description": "Audit-grade certified digital delivery for proof-required communications.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8a957a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/vaultinbox-mark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
+EOF

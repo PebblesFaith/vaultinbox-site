@@ -370,3 +370,47 @@ button.btn{font-family:inherit;cursor:pointer}
     min-height:68px;
   }
 }
+
+
+/* Navigation interactive underline slider */
+.site-header .nav-links a{
+  position:relative;
+  overflow:hidden;
+}
+
+.site-header .nav-links a::after{
+  content:"";
+  position:absolute;
+  left:13px;
+  right:13px;
+  bottom:6px;
+  height:2px;
+  border-radius:999px;
+  background:linear-gradient(90deg, var(--primary), var(--sage));
+  transform:scaleX(0);
+  transform-origin:left center;
+  opacity:0;
+  transition:transform .24s ease, opacity .24s ease;
+}
+
+.site-header .nav-links a:hover::after,
+.site-header .nav-links a:focus-visible::after,
+.site-header .nav-links a.active::after{
+  transform:scaleX(1);
+  opacity:1;
+}
+
+.site-header .nav-links a:hover,
+.site-header .nav-links a:focus-visible{
+  color:var(--primary-dark);
+}
+
+.site-header .nav-links a.active::after{
+  background:linear-gradient(90deg, var(--primary-dark), var(--primary));
+}
+
+@media (prefers-reduced-motion: reduce){
+  .site-header .nav-links a::after{
+    transition:none;
+  }
+}

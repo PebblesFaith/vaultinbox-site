@@ -1,0 +1,134 @@
+<!-- Insert inside the existing Revenue Projections .container.card, after the projection cards and before the closing container div. -->
+<div class="vi-estimator" id="delivery-estimator" aria-labelledby="delivery-estimator-heading" style="margin-top:24px;">
+    <div class="section-head">
+      <div>
+        <h3 id="delivery-estimator-heading">Interactive Delivery Estimator</h3>
+        <p>Explore illustrative PDF delivery charges and optional-service assumptions.</p>
+      </div>
+      <div><span class="tag">$1 per PDF page</span><span class="tag">Pre-MVP model</span></div>
+    </div>
+
+    <div class="vi-estimator-grid">
+      <div class="vi-estimator-fields">
+        <label for="vi-pages">Billable PDF pages ($1.00 each)</label>
+        <input id="vi-pages" type="number" min="1" max="10000" step="1" value="5" inputmode="numeric">
+
+        <fieldset>
+          <legend>Choose one verification service</legend>
+          <label><input type="radio" name="vi-verification" value="otp" checked> OTP verification</label>
+          <label><input type="radio" name="vi-verification" value="mfa"> Enhanced MFA verification</label>
+        </fieldset>
+        <label for="vi-verification-rate">Selected verification charge ($, planning assumption)</label>
+        <input id="vi-verification-rate" type="number" min="0" max="10000" step="0.01" placeholder="Rate not finalized" inputmode="decimal">
+        <p class="small">Only one verification service is included. Required account-security MFA is not a separate optional charge.</p>
+
+        <label for="vi-extra-certs">Additional certificate copies (first certificate complimentary)</label>
+        <input id="vi-extra-certs" type="number" min="0" max="10000" step="1" value="0" inputmode="numeric">
+        <label for="vi-certificate-rate">Price per additional certificate ($, planning assumption)</label>
+        <input id="vi-certificate-rate" type="number" min="0" max="10000" step="0.01" placeholder="Rate not finalized" inputmode="decimal">
+
+        <label for="vi-retention">Document retention term</label>
+        <select id="vi-retention">
+          <option value="0" selected>No paid retention selected</option>
+          <option value="1">1 month</option>
+          <option value="12">1 year</option>
+          <option value="36">3 years</option>
+          <option value="60">5 years</option>
+        </select>
+        <label for="vi-storage-basis">Storage-rate basis (per document)</label>
+        <select id="vi-storage-basis">
+          <option value="month">Per month</option>
+          <option value="year">Per year (prorated for partial years)</option>
+        </select>
+        <label for="vi-storage-rate">Storage rate per period ($, planning assumption)</label>
+        <input id="vi-storage-rate" type="number" min="0" max="10000" step="0.01" placeholder="Rate not finalized" inputmode="decimal">
+      </div>
+
+      <div class="vi-estimator-results" aria-live="polite" aria-atomic="true">
+        <h3>Estimated customer charges</h3>
+        <div class="vi-estimator-line"><span>PDF pages</span><strong id="vi-pages-total">$5.00</strong></div>
+        <div class="vi-estimator-line"><span id="vi-verification-label">OTP verification</span><strong id="vi-verification-total">Rate pending</strong></div>
+        <div class="vi-estimator-line"><span>First certificate — courtesy of VaultInbox.Cloud</span><strong>$0.00</strong></div>
+        <div class="vi-estimator-line"><span>Additional certificate copies</span><strong id="vi-cert-total">$0.00</strong></div>
+        <div class="vi-estimator-line"><span>Storage and retention</span><strong id="vi-storage-total">$0.00</strong></div>
+        <div class="vi-estimator-line vi-estimator-grand"><span>Estimated total</span><strong id="vi-grand-total">Pending rates</strong></div>
+        <p class="small" id="vi-estimator-message">Enter the selected verification rate to calculate a complete illustrative total.</p>
+        <button class="btn" type="button" id="vi-estimator-reset">Reset assumptions</button>
+      </div>
+    </div>
+    <p class="small">Planning tool only; not a customer checkout quote, approved price schedule, revenue forecast, or offer of service. Optional rates are visitor-entered assumptions. Storage charges cover the selected term and are not necessarily recognized as revenue at the time of payment. Taxes, refunds, discounts, and operating expenses are excluded.</p>
+</div>
+
+<style>
+  #delivery-estimator { padding-top: 20px; border-top: 1px solid rgba(128,128,128,.3); }
+  #delivery-estimator .vi-estimator-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px; margin-top: 18px; }
+  #delivery-estimator .vi-estimator-fields { display: grid; gap: 10px; min-width: 0; }
+  #delivery-estimator .vi-estimator-fields > label, #delivery-estimator legend { font-weight: 600; }
+  #delivery-estimator input[type="number"], #delivery-estimator select { width: 100%; max-width: 100%; box-sizing: border-box; padding: 11px; border: 1px solid #8a96a8; border-radius: 8px; background: #fff; color: #172034; font: inherit; }
+  #delivery-estimator fieldset { display: flex; flex-wrap: wrap; gap: 12px 18px; border: 1px solid #8a96a8; border-radius: 8px; padding: 12px; min-width: 0; }
+  #delivery-estimator fieldset label { display: inline-flex; align-items: center; gap: 6px; }
+  #delivery-estimator .vi-estimator-results { border: 1px solid #8a96a8; border-radius: 12px; padding: 18px; align-self: start; min-width: 0; }
+  #delivery-estimator .vi-estimator-line { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(128,128,128,.3); }
+  #delivery-estimator .vi-estimator-line strong { white-space: nowrap; }
+  #delivery-estimator .vi-estimator-grand { font-size: 1.15rem; font-weight: 700; }
+  #delivery-estimator .vi-estimator-results button { margin-top: 12px; }
+  @media (max-width: 760px) { #delivery-estimator .vi-estimator-grid { grid-template-columns: minmax(0, 1fr); } }
+</style>
+
+<script>
+(() => {
+  'use strict';
+  const root = document.getElementById('delivery-estimator');
+  if (!root) return;
+  const el = id => root.querySelector('#' + id);
+  const money = cents => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(cents / 100);
+  const integer = (value, min, max) => {
+    const n = Number(value);
+    return Number.isSafeInteger(n) && n >= min && n <= max ? n : null;
+  };
+  const rateCents = value => {
+    if (String(value).trim() === '') return null;
+    const n = Number(value);
+    return Number.isFinite(n) && n >= 0 && n <= 10000 ? Math.round(n * 100) : null;
+  };
+  const display = (id, value) => { el(id).textContent = value; };
+
+  function calculate() {
+    const pages = integer(el('vi-pages').value, 1, 10000);
+    const extra = integer(el('vi-extra-certs').value, 0, 10000);
+    const months = integer(el('vi-retention').value, 0, 60);
+    const verification = root.querySelector('input[name="vi-verification"]:checked').value;
+    const verificationRate = rateCents(el('vi-verification-rate').value);
+    const certificateRate = rateCents(el('vi-certificate-rate').value);
+    const storageRate = rateCents(el('vi-storage-rate').value);
+    const basis = el('vi-storage-basis').value;
+    const pageTotal = pages === null ? null : pages * 100;
+    const verificationTotal = verificationRate;
+    const certTotal = extra === null ? null : extra === 0 ? 0 : certificateRate === null ? null : extra * certificateRate;
+    const storageTotal = months === null ? null : months === 0 ? 0 : storageRate === null ? null :
+      Math.round(storageRate * (basis === 'month' ? months : months / 12));
+    display('vi-pages-total', pageTotal === null ? 'Invalid pages' : money(pageTotal));
+    display('vi-verification-label', verification === 'otp' ? 'OTP verification' : 'Enhanced MFA verification');
+    display('vi-verification-total', verificationTotal === null ? 'Rate pending' : money(verificationTotal));
+    display('vi-cert-total', certTotal === null ? 'Rate pending' : money(certTotal));
+    display('vi-storage-total', storageTotal === null ? 'Rate pending' : money(storageTotal));
+    const complete = [pageTotal, verificationTotal, certTotal, storageTotal].every(Number.isFinite);
+    display('vi-grand-total', complete ? money(pageTotal + verificationTotal + certTotal + storageTotal) : 'Pending rates');
+    display('vi-estimator-message', complete ? 'Illustrative charges for the selected document and full retention term.' : 'Enter valid quantities and applicable optional-service assumptions to calculate a complete total.');
+  }
+  root.addEventListener('input', calculate);
+  root.addEventListener('change', calculate);
+  el('vi-estimator-reset').addEventListener('click', () => {
+    el('vi-pages').value = '5';
+    root.querySelector('input[name="vi-verification"][value="otp"]').checked = true;
+    el('vi-verification-rate').value = '';
+    el('vi-extra-certs').value = '0';
+    el('vi-certificate-rate').value = '';
+    el('vi-retention').value = '0';
+    el('vi-storage-basis').value = 'month';
+    el('vi-storage-rate').value = '';
+    calculate();
+  });
+  calculate();
+})();
+</script>

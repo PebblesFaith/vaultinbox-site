@@ -715,7 +715,7 @@
     <div class="vi-estimator-grid">
       <div class="vi-estimator-fields">
         <label for="vi-pages">Billable PDF pages ($1.00 each)</label>
-        <input id="vi-pages" type="number" min="1" max="10000" step="1" value="5" inputmode="numeric">
+        <input id="vi-pages" type="number" min="1" max="1000000" step="1" value="5" inputmode="numeric">
 
         <fieldset>
           <legend>Choose one verification service</legend>
@@ -747,16 +747,15 @@
         <label for="vi-storage-rate">Storage rate per period ($, planning assumption)</label>
         <input id="vi-storage-rate" type="number" min="0" max="10000" step="0.01" placeholder="Rate not finalized" inputmode="decimal">
       </div>
-
-      <div class="vi-estimator-results" aria-live="polite" aria-atomic="true">
-        <h3>Estimated customer charges</h3>
+    <div class="vi-estimator-results">
+      <h3>Estimated customer charges</h3>
         <div class="vi-estimator-line"><span>PDF pages</span><strong id="vi-pages-total">$5.00</strong></div>
         <div class="vi-estimator-line"><span id="vi-verification-label">OTP verification</span><strong id="vi-verification-total">Rate pending</strong></div>
         <div class="vi-estimator-line"><span>First certificate — courtesy of VaultInbox.Cloud</span><strong>$0.00</strong></div>
         <div class="vi-estimator-line"><span>Additional certificate copies</span><strong id="vi-cert-total">$0.00</strong></div>
         <div class="vi-estimator-line"><span>Storage and retention</span><strong id="vi-storage-total">$0.00</strong></div>
         <div class="vi-estimator-line vi-estimator-grand"><span>Estimated total</span><strong id="vi-grand-total">Pending rates</strong></div>
-        <p class="small" id="vi-estimator-message">Enter the selected verification rate to calculate a complete illustrative total.</p>
+        <p class="small" id="vi-estimator-message" role="status" aria-live="polite" aria-atomic="true">Enter the selected verification rate to calculate a complete illustrative total.</p>
         <button class="btn" type="button" id="vi-estimator-reset">Reset assumptions</button>
       </div>
     </div>
@@ -798,7 +797,7 @@
   const display = (id, value) => { el(id).textContent = value; };
 
   function calculate() {
-    const pages = integer(el('vi-pages').value, 1, 10000);
+    const pages = integer(el('vi-pages').value, 1, 1000000);
     const extra = integer(el('vi-extra-certs').value, 0, 10000);
     const months = integer(el('vi-retention').value, 0, 60);
     const verification = root.querySelector('input[name="vi-verification"]:checked').value;
@@ -1052,7 +1051,20 @@
       </details>
       <details><summary>How do you handle security disclosure?</summary><p>Public pages describe principles and control categories. Security-sensitive implementation details, threat modeling, and testing artifacts are shared selectively during diligence under appropriate confidentiality.</p></details>
       <details><summary>What are the biggest risks?</summary><p>Primary risks include jurisdictional variance in evidentiary acceptance, security incident risk, and adoption friction from paper workflows. Mitigations include conservative claims, pilot selection, secure SDLC, staged rollout, and integration-driven adoption.</p></details>
-      <details><summary>What does “audit-grade” mean here?</summary><p>It means the product is engineered for traceability and review: controlled state transitions, defensible event timelines, access-control discipline, and evidence-oriented records suitable for audit and dispute contexts.</p></details>
+      <details>
+        <summary>How does VaultInbox.Cloud support evidence traceability and review?</summary>
+        <p>
+          VaultInbox.Cloud's Certified Digital Delivery subsystem is designed
+          to support transaction traceability through structured delivery
+          states, event-history records, recipient-access controls, and
+          certificate-related documentation. These capabilities are part of
+          the Advanced MVP / Production Hardening development program and
+          remain subject to final security, operational, and production
+          validation. Evidence-oriented design does not, by itself,
+          establish independent audit certification, regulatory compliance,
+          or legal admissibility in a particular proceeding.
+        </p>
+      </details>
       <details><summary>What does diligence include?</summary><p>Architecture overview, control categories, demo walkthrough, roadmap assumptions, and selectively shared security documentation and implementation notes appropriate for diligence review.</p></details>
       <details><summary>What’s the best way to engage?</summary><p>Email <strong><a href="mailto:investors@vaultinbox.cloud?subject=VaultInbox%20Investor%20Intro%20Request">investors@vaultinbox.cloud</a></strong> for an intro request, or use the contact page to request diligence materials.</p></details>
       <details>
